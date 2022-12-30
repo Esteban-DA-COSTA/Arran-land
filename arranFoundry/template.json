@@ -1,0 +1,82 @@
+{
+  "Actor": {
+    "types": ["character", "monster"],
+    "templates": {
+      "background": {
+        "name" : "",
+        "history": "",
+        "apparence": ""
+      },
+
+      "resources": {
+        "health": {
+          "min": 0,
+          "value": 0,
+          "max": 0
+        },
+        "power": {
+          "min": 0,
+          "value": 0,
+          "max": 0
+        }
+      },
+
+      "characteristics": {
+        "strength":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "dexterity":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "constitution":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "intelligence":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "wisdom":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "charisma":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        }
+      }
+
+    }
+  },
+  "Item": {
+    "types": ["weapon", "spell"],
+    "templates": {
+      "rarity": {
+        "rarity": "Common",
+        "price": 20
+      }
+    },
+    "weapon": {
+      "templates": ["rarity"],
+      "damage": 5
+    },
+    "spell": {
+      "templates": ["rarity"],
+      "cost": 2
+    }
+  }
+}
