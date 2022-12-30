@@ -1,0 +1,28 @@
+{
+  "id": "arranFoundry",
+  "title": "Arran Foundry",
+  "description": "System usable to play to Arran's Lands",
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "estebanDC"
+    },
+    {
+      "name": "Pyraquas"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "gridDistance": 1.5,
+  "gridUnits": "m"
+}
