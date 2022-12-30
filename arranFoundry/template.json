@@ -58,8 +58,14 @@
           "max" : 20,
           "mod" : 0
         }
+      },
+      "battle_stat" : {
+        "initiative" : 0,
+        "melee" : 0,
+        "range" : 0,
+        "magic" : 0,
+        "defence": 0
       }
-
     }
   },
   "Item": {
