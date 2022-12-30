@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "monster"],
+    "types": ["character", "monster","companion"],
     "templates": {
       "background": {
         "name" : "",
@@ -9,15 +9,20 @@
       },
 
       "resources": {
-        "health": {
+        "pv": {
           "min": 0,
           "value": 0,
           "max": 0
         },
-        "power": {
+        "pm": {
           "min": 0,
           "value": 0,
           "max": 0
+        },
+        "pc" :{
+          "min" : 0,
+          "value" : 0,
+          "max" : 0
         }
       },
 
