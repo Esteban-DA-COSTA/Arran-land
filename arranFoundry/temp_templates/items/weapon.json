@@ -1,0 +1,8 @@
+{
+  "weapon": {
+    "templates": ["default"],
+    "damage": "",
+    "mod": "FOR",
+    "attack_type": "contact"
+  }
+}
