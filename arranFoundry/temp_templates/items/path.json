@@ -1,0 +1,13 @@
+{
+  "path": {
+    "templates": ["default"],
+    "skills": [
+      {
+        "name": "",
+        "description": "",
+        "level": 1
+      }
+    ],
+    "path_type": "profil"
+  }
+}

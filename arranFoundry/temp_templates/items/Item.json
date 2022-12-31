@@ -1,6 +1,6 @@
 {
   "Item": {
-    "types": ["weapon"],
+    "types": ["weapon", "spell", "skill"],
     "templates": {
       "default": {
         "name": ""
