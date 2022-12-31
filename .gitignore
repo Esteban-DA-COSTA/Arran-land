@@ -1,6 +1,12 @@
-# Intellij
-.idea
-ArranFoundry.iml
+# IDE
+.idea/
+.vs/
 
-# NodeJS
-node_modules
+# Node Modules
+node_modules/
+npm-debug.log
+
+# Foundry
+*.lock
+jsconfig.json
+foundry
