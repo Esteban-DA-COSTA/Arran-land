@@ -1,0 +1,114 @@
+{
+  "Actor": {
+    "types": ["character", "monster", "companion"],
+    "templates": {
+      "background": {
+        "history": "",
+        "apparence": "",
+        "race": "elf",
+        "culture": "black"
+      },
+
+      "resources": {
+        "pv": {
+          "min": 0,
+          "value": 0,
+          "max": 0
+        },
+        "pm": {
+          "min": 0,
+          "value": 0,
+          "max": 0
+        },
+        "pc" :{
+          "min" : 0,
+          "value" : 0,
+          "max" : 0
+        }
+      },
+
+      "characteristics": {
+        "strength":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "dexterity":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "constitution":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "intelligence":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "wisdom":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        },
+        "charisma":{
+          "min" : 0,
+          "value" : 10,
+          "max" : 20,
+          "mod" : 0
+        }
+      },
+      "battle_stats" : {
+        "initiative" : 0,
+        "melee" : 0,
+        "range" : 0,
+        "magic" : 0,
+        "defence": 0
+      }
+    },
+    "character": {
+      "templates": ["background", "characteristics", "resources", "battle_stats"]
+    },
+    "monster": {
+      "templates": ["characteristics", "resources", "battle_stats"]
+    },
+    "companion": {
+      "templates": ["characteristics", "resources", "battle_stats"]
+    }
+  },
+  "Item": {
+    "types": ["weapon", "spell", "path"],
+    "templates": {
+    },
+    "weapon": {
+      "templates": [],
+      "damage": "",
+      "mod": "FOR",
+      "attack_type": "contact"
+    },
+    "spell": {
+      "templates": [],
+      "cost": 0,
+      "concentration": false,
+      "action_type": "A"
+    },
+    "path": {
+      "templates": [],
+      "skills": [
+        {
+          "name": "",
+          "description": "",
+          "level": 1
+        }
+      ],
+      "path_type": "profil"
+    }
+  }
+}
