@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "compatibility": {
     "minimum": "10",
-    "verified": "10",
+    "verified": "10.287",
     "maximum": "10"
   },
   "authors": [
@@ -16,6 +16,7 @@
       "name": "Pyraquas"
     }
   ],
+  "esmodules": ["module/boilerplate.mjs"],
   "languages": [
     {
       "lang": "fr",
