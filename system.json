@@ -16,7 +16,7 @@
       "name": "Pyraquas"
     }
   ],
-  "esmodules": ["module/boilerplate.mjs"],
+  "esmodules": ["module/arranConfig.mjs"],
   "languages": [
     {
       "lang": "fr",
