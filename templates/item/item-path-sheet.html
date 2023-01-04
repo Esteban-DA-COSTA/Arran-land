@@ -1,0 +1,23 @@
+{{!-- This template is a fallback for when items don't have more specific templates. --}}
+{{!-- Generally, you'll want to make more specific templates when possible. --}}
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        </div>
+    </header>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{#each system.skills}}
+        <div>
+            <div class="flex-group-left" style="display: flex;">
+                <input name="acquired" type="checkbox">
+                <h2>{{this.level}}. </h2> <input name="skill_name" type="text" value="{{this.name}}" placeholder="Skill name"/>
+            </div>
+            <textarea name="skill_description" placeholder="Skill description">{{this.description}}</textarea>
+        </div>
+        {{/each}}
+    </section>
+</form>
