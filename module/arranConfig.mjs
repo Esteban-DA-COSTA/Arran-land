@@ -42,8 +42,8 @@ Hooks.once('init', async function() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("arranFoundry", BoilerplateActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("arranFoundry", ArranFoundryItemSheet, { makeDefault: true });
-  Items.registerSheet("arranFoundry", PathItemSheet)
+  Items.registerSheet("arranFoundry", ArranFoundryItemSheet, { label: "Default", makeDefault: true });
+  Items.registerSheet("arranFoundry", PathItemSheet, { label:"Path Sheet", type: ["path"] })
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
