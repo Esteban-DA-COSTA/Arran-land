@@ -97,7 +97,8 @@
       "templates": [],
       "cost": 0,
       "concentration": false,
-      "action_type": "A"
+      "action_type": "A",
+      "description": ""
     },
     "path": {
       "templates": [],
