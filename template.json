@@ -105,27 +105,32 @@
         {
           "name": "",
           "description": "",
-          "level": 1
+          "level": 1,
+          "isAcquired": false
         },
         {
           "name": "",
           "description": "",
-          "level": 2
+          "level": 2,
+          "isAcquired": false
         },
         {
           "name": "",
           "description": "",
-          "level": 3
+          "level": 3,
+          "isAcquired": false
         },
         {
           "name": "",
           "description": "",
-          "level": 4
+          "level": 4,
+          "isAcquired": false
         },
         {
           "name": "",
           "description": "",
-          "level": 5
+          "level": 5,
+          "isAcquired": false
         }
       ],
       "path_type": "profil"
