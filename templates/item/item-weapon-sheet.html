@@ -11,14 +11,14 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body">
         <div>
-            Damage
+            {{localize "arranFoundry.damage"}}
             <input type="text" name="system.damage" value="{{system.damage}}">
         </div>
         <div>Mod.
             <input type="text" name="system.mod" value="{{system.mod}}">
         </div>
         <div>
-            Attack type
+            {{localize "arranFoundry.attack_type"}}
             <input type="text" name="system.attack_type" value="{{system.attack_type}}">
         </div>
         <button id="attack_button" data-roll="{{system.damage}}" data-label="attack" data-mod="{{system.mod}}">Attack</button>
