@@ -49,9 +49,6 @@ export class ArranFoundryItemSheet extends ItemSheet {
     // Add the actor's data to context.data for easier access, as well as flags.
     context.system = itemData.system;
     context.flags = itemData.flags;
-
-    console.log(this)
-    console.log(context.system)
     return context;
   }
 
@@ -65,6 +62,38 @@ export class ArranFoundryItemSheet extends ItemSheet {
     if (!this.isEditable) return;
 
     // Roll handlers, click handlers, etc. would go here.
+    html.find("#attack_button").click(this.rollAttack.bind(this))
+  }
+
+  async rollAttack(event) {
+    event.preventDefault();
+
+    const element = event.currentTarget;
+
+    const data = element.dataset;
+    // Check that there is a formula to attack
+    if (!data.roll && data.roll === "") {
+      await ChatMessage.create({content: "<b>No rolling damage information</b>"});
+      // chatLog.postOne(chat, {notify: true});
+      return;
+    }
+    console.log(this.actor);
+    const roll = new Roll(data.roll);
+    roll.evaluate({async: false});
+    roll.toMessage({label: "Attack", flavor: "Damage"}).then((msg) => {
+      console.log(msg);
+
+    });
+
+    chat.rolls = [roll];
+    chat.sound = "sounds/dice.wav";
+    chat.type = 5;
+    chat.content = roll.result;
+    console.log("chat");
+
+    console.log(chat);
+    // chatLog.postOne(chat, {notify: true})
+
   }
 }
 
