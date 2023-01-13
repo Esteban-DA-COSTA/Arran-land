@@ -2,6 +2,9 @@
   "arranFoundry.damage": "Damage",
   "arranFoundry.attack_type": "Attack type",
   "arranFoundry.name": "Name",
+  "arranFoundry.description": "Description",
   "arranFoundry.Sk_name": "Skill name",
-  "arranFoundry.Sk_description": "Skill description"
+  "arranFoundry.Sk_description": "Skill description",
+  "arranFoundry.Sp_cost": "Cost",
+  "arranFoundry.action_type": "Action type"
 }
