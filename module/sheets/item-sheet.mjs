@@ -182,7 +182,7 @@ export class ArranFoundryWeaponItemSheet extends ItemSheet {
     console.log(this.actor);
     const roll = new Roll(data.roll);
     roll.evaluate({async: false});
-    roll.toMessage({label: "Attack", flavor: "Damage"}).then((msg) => {
+    roll.toMessage({label: game.i18n.localize("arranFoundry.attack"), flavor: game.i18n.localize("arranFoundry.damage")}).then((msg) => {
       console.log(msg);
 
     });
