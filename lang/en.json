@@ -3,8 +3,16 @@
   "arranFoundry.attack_type": "Attack type",
   "arranFoundry.name": "Name",
   "arranFoundry.description": "Description",
+
   "arranFoundry.Sk_name": "Skill name",
   "arranFoundry.Sk_description": "Skill description",
+
   "arranFoundry.Sp_cost": "Cost",
-  "arranFoundry.action_type": "Action type"
+  "arranFoundry.action_type": "Action type",
+
+  "arranFoundry.path_type": "Path type",
+  "arranFoundry.path_profile": "Profile",
+  "arranFoundry.path_race": "Race",
+  "arranFoundry.path_culture": "Culture",
+  "arranFoundry.path_prestige": "Prestige"
 }

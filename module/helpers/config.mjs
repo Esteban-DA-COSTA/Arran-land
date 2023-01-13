@@ -1,4 +1,5 @@
 export const BOILERPLATE = {};
+export const ARRANFOUNDRY = {};
 
 /**
  * The set of Ability Scores used within the sytem.
@@ -21,3 +22,10 @@ BOILERPLATE.abilityAbbreviations = {
   "wis": "BOILERPLATE.AbilityWisAbbr",
   "cha": "BOILERPLATE.AbilityChaAbbr"
 };
+
+ARRANFOUNDRY.path_type = {
+    "profile": "arranFoundry.path_profile",
+    "race": "arranFoundry.path_race",
+    "culture": "arranFoundry.path_culture",
+    "prestige": "arranFoundry.path_prestige"
+}

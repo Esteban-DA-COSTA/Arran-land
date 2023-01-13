@@ -1,3 +1,5 @@
+import {ARRANFOUNDRY} from "../helpers/config.mjs";
+
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -128,6 +130,7 @@ export class PathItemSheet extends ItemSheet {
 
     // Add the actor's data to context.data for easier access, as well as flags.
     context.system = itemData.system;
+    context.path_type = ARRANFOUNDRY.path_type;
     context.flags = itemData.flags;
 
     console.log(itemData.system);
@@ -149,15 +152,24 @@ export class PathItemSheet extends ItemSheet {
     // Get the object data
     const itemData = this.object;
 
-    console.log(itemData);
-    console.log(formData);
+    // create the final form Data
+    let newFormData = {};
+    newFormData.system = {};
+
+    newFormData.img = formData.img;
+    newFormData.name = formData.name;
+    newFormData.system.path_type = formData.path_type;
+    newFormData.system.skills = [];
 
     // For each skill, map the input value
     itemData.system.skills.forEach((skill, index) => {
-      skill.name = formData.skill_name[index];
-      skill.description = formData.skill_description[index];
-      skill.isAcquired = formData.skill_isAcquired[index];
+      newFormData.system.skills.push({
+        name: formData.skill_name[index],
+        description: formData.skill_description[index],
+        isAcquired: formData.skill_isAcquired[index],
+        level: [index+1]
+      });
     })
-    return Promise.resolve()
+    return new Promise(()=> {this.item.update(newFormData);})
   }
 }

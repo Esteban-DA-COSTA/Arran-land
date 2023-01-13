@@ -3,8 +3,16 @@
   "arranFoundry.attack_type": "Type d'attaque",
   "arranFoundry.name": "Nom",
   "arranFoundry.description": "Description",
+
   "arranFoundry.Sk_name": "Nom de la compétence",
   "arranFoundry.Sk_description": "Description de la compétence",
+
   "arranFoundry.Sp_cost": "Coût",
-  "arranFoundry.action_type": "Type d'action"
+  "arranFoundry.action_type": "Type d'action",
+
+  "arranFoundry.path_type": "Type de voie",
+  "arranFoundry.path_profile": "Profil",
+  "arranFoundry.path_race": "Peuple",
+  "arranFoundry.path_culture": "Culture",
+  "arranFoundry.path_prestige": "Prestige"
 }
