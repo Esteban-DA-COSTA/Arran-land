@@ -1,6 +1,7 @@
 {
   "arranFoundry.damage": "Damage",
   "arranFoundry.attack_type": "Attack type",
-  "arranFoundry.name": "Name"
-
+  "arranFoundry.name": "Name",
+  "arranFoundry.Sk_name": "Skill name",
+  "arranFoundry.Sk_description": "Skill description"
 }

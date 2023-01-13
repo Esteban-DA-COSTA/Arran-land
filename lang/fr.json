@@ -1,5 +1,7 @@
 {
   "arranFoundry.damage": "Dommage",
   "arranFoundry.attack_type": "Type d'attaque",
-  "arranFoundry.name": "Nom"
+  "arranFoundry.name": "Nom",
+  "arranFoundry.Sk_name": "Nom de la compétence",
+  "arranFoundry.Sk_description": "Description de la compétence"
 }
