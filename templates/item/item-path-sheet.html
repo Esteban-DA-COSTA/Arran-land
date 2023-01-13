@@ -10,7 +10,15 @@
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
-        <input type="text" name="system.path_type" value="{{system.path_type}}">
+        <select name="path_type">
+            {{#each path_type}}
+            {{#if (eq @key ../system.path_type)}}
+            <option value="{{@key}}" selected="selected">{{localize this}}</option>
+            {{else}}
+            <option value="{{@key}}">{{localize this}}</option>
+            {{/if}}
+            {{/each}}
+        </select>
         {{#each system.skills}}
         <div>
             <div class="flex-group-left" style="display: flex;">

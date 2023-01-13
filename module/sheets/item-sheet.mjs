@@ -170,6 +170,7 @@ export class PathItemSheet extends ItemSheet {
         level: [index+1]
       });
     })
-    return new Promise(()=> {this.item.update(newFormData);})
+    this.item.update(newFormData);
+    return Promise.resolve();
   }
 }
