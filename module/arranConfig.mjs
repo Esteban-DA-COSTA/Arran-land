@@ -3,7 +3,7 @@ import { BoilerplateActor } from "./documents/actor.mjs";
 import { BoilerplateItem } from "./documents/item.mjs";
 // Import sheet classes.
 import { BoilerplateActorSheet } from "./sheets/actor-sheet.mjs";
-import {ArranFoundryItemSheet, PathItemSheet} from "./sheets/item-sheet.mjs";
+import {ArranFoundryItemSheet, PathItemSheet, WeaponItemSheet} from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { BOILERPLATE } from "./helpers/config.mjs";
@@ -44,6 +44,7 @@ Hooks.once('init', async function() {
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("arranFoundry", ArranFoundryItemSheet, { label: "Default", makeDefault: true });
   Items.registerSheet("arranFoundry", PathItemSheet, { label:"Path Sheet", type: ["path"] })
+  Items.registerSheet("arranFoundry", WeaponItemSheet, { label:"Weapon Sheet", type: ["weapon"] })
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
