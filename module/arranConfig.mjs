@@ -3,7 +3,10 @@ import { BoilerplateActor } from "./documents/actor.mjs";
 import { BoilerplateItem } from "./documents/item.mjs";
 // Import sheet classes.
 import { BoilerplateActorSheet } from "./sheets/actor-sheet.mjs";
-import {ArranFoundryItemSheet, PathItemSheet, WeaponItemSheet} from "./sheets/item-sheet.mjs";
+import {
+  ArranFoundryItemSheet, ArranFoundryPathItemSheet, ArranFoundrySpellItemSheet, ArranFoundryWeaponItemSheet,
+
+} from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { BOILERPLATE } from "./helpers/config.mjs";
@@ -42,9 +45,10 @@ Hooks.once('init', async function() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("arranFoundry", BoilerplateActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("arranFoundry", ArranFoundryItemSheet, { label: "Default", makeDefault: true });
-  Items.registerSheet("arranFoundry", PathItemSheet, { label:"Path Sheet", type: ["path"] })
-  Items.registerSheet("arranFoundry", WeaponItemSheet, { label:"Weapon Sheet", type: ["weapon"] })
+  Items.registerSheet("arranFoundry", ArranFoundryItemSheet, { label: game.i18n.localize("arranFoundry.config.default_sheet"), makeDefault: true });
+  Items.registerSheet("arranFoundry", ArranFoundryPathItemSheet, { label: game.i18n.localize("arranFoundry.config.path_sheet"), type: ["path"], makeDefault: true })
+  Items.registerSheet("arranFoundry", ArranFoundryWeaponItemSheet, { label: game.i18n.localize("arranFoundry.config.weapon_sheet"), type: ["weapon"], makeDefault: true })
+  Items.registerSheet("arranFoundry", ArranFoundrySpellItemSheet, { label: game.i18n.localize("arranFoundry.config.spell_sheet"), type: ["spell"], makeDefault: true })
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();

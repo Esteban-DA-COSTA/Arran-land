@@ -1,4 +1,9 @@
 {
+  "arranFoundry.config.default_sheet": "Feuille par défaut",
+  "arranFoundry.config.path_sheet": "Feuille de voie",
+  "arranFoundry.config.weapon_sheet": "Feuille d'arme",
+  "arranFoundry.config.spell_sheet": "Feuille de sort",
+
   "arranFoundry.damage": "Dommage",
   "arranFoundry.attack_type": "Type d'attaque",
   "arranFoundry.name": "Nom",
