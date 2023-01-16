@@ -1,4 +1,8 @@
 {
+  "ITEM.TypeWeapon": "Arme",
+  "ITEM.TypeSpell": "Sort",
+  "ITEM.TypePath": "Voie",
+
   "arranFoundry.config.default_sheet": "Feuille par défaut",
   "arranFoundry.config.path_sheet": "Feuille de voie",
   "arranFoundry.config.weapon_sheet": "Feuille d'arme",
