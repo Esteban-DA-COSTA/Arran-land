@@ -25,7 +25,7 @@
                 <input name="skill_isAcquired" type="checkbox" {{#if this.isAcquired}}checked="" {{/if}}>
                 <h2>{{this.level}}. </h2> <input name="skill_name" type="text" value='{{this.name}}' placeholder="{{localize 'arranFoundry.Sk_name'}}" data-dtype="String"/>
             </div>
-            <textarea name="skill_description" placeholder="{{localize 'arranFoundry.Sk_description'}}">{{this.description}}</textarea>
+            <textarea name="skill_description" rows="5" cols="50" placeholder="{{localize 'arranFoundry.Sk_description'}}">{{this.description}}</textarea>
         </div>
         {{/each}}
     </section>
