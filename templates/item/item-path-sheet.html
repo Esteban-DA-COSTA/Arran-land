@@ -19,6 +19,10 @@
             {{/if}}
             {{/each}}
         </select>
+        <div>
+            <label></label>
+            <textarea name="description" rows="5" cols="30" placeholder="{{localize 'arranFoundry.description'}}">{{system.description}}</textarea>
+        </div>
         {{#each system.skills}}
         <div>
             <div class="flex-group-left" style="display: flex;">

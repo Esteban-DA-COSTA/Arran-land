@@ -260,6 +260,7 @@ export class ArranFoundryPathItemSheet extends ItemSheet {
     newFormData.img = formData.img;
     newFormData.name = formData.name;
     newFormData.system.path_type = formData.path_type;
+    newFormData.system.description = formData.description;
     newFormData.system.skills = [];
 
     // For each skill, map the input value
