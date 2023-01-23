@@ -24,6 +24,10 @@
   "arranFoundry.class": "Classe",
   "arranFoundry.class_name": "Nom de la classe",
 
+  "arranFoundry.melee_attack": "Attaque de mêlée",
+  "arranFoundry.range_attack": "Attaque à distance",
+  "arranFoundry.magic_attack": "Attaque magique",
+
   "arranFoundry.Sk_name": "Nom de la compétence",
   "arranFoundry.Sk_description": "Description de la compétence",
 
@@ -71,6 +75,7 @@
   "arranFoundry.ui.general_information": "Informations Générales",
   "arranFoundry.ui.resources": "Ressources",
   "arranFoundry.ui.attributes": "Caractéristiques",
+  "arranFoundry.ui.attacks": "Attaques",
 
   "arranFoundry.msg.no_enough_resources": "Pas assez de ressource pour faire cela.",
   "arranFoundry.msg.recuperation": "Se repose 5 minutes pour regagner des points de vie."

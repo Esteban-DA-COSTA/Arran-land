@@ -2,7 +2,7 @@
   "id": "arranFoundry",
   "title": "Les terres d'Arran",
   "description": "System usable to play to Arran's Lands",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "compatibility": {
     "minimum": "10",
     "verified": "10.291",
@@ -11,14 +11,16 @@
   "authors": [
     {
       "name": "estebanDC"
-    },
-    {
-      "name": "Pyraquas"
     }
   ],
   "esmodules": ["module/arranConfig.mjs"],
   "styles": ["css/boilerplate.css", "css/arranFoundry.css"],
   "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
     {
       "lang": "fr",
       "name": "Français",

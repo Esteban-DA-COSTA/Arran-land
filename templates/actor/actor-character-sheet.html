@@ -7,14 +7,32 @@
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
         <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'arranFoundry.name'}}"/></h1>
       </div>
+    </div>
+
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" style="flex: 0" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="general">General</a>
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="paths">{{localize 'arranFoundry.paths'}}</a>
+    <a class="item" data-tab="items">Items</a>
+    <a class="item" data-tab="spells">Spells</a>
+    <a class="item" data-tab="effects">Effects</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body" >
+    <div class="tab general" data-group="primary" data-tab="general">
+      {{!-- Upper Tab --}}
+      {{!-- General Information --}}
       <div style="display: flex; justify-content: space-between">
-        {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-        use both the "grid" and "grid-Ncol" class where "N" can be any number
-        from 1 to 12 and will create that number of columns.  --}}
         <div id="general_information" class="flex-group-left">
           <h2>{{localize 'arranFoundry.ui.general_information'}}</h2>
           <label class="blockedLabel resource-label"> {{localize 'arranFoundry.class'}}
-            <input name="system.class" class="centeredInput" type="text" value="{{system.class}}" placeholder="{{localize 'arranFoundry.class_name'}}">
+            <input name="system.class" class="centeredInput" type="text" value="{{system.class}}"
+                   placeholder="{{localize 'arranFoundry.class_name'}}">
           </label>
           <label class="blockedLabel resource-label"> Race
             <select name="system.race">
@@ -49,7 +67,7 @@
           and it will add a small amount of padding, a border, and will
           center all of its child elements content and text. --}}
           <div class="resource flex-group-center">
-            <label for="system.hp.value" class="resource-label">{{localize 'arranFoundry.hp'}}</label>
+            <label class="resource-label">{{localize 'arranFoundry.hp'}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -58,7 +76,7 @@
           </div>
 
           <div class="resource flex-group-center">
-            <label for="system.mp.value" class="resource-label">{{localize 'arranFoundry.mp'}}</label>
+            <label class="resource-label">{{localize 'arranFoundry.mp'}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="system.mp.value" value="{{system.mp.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -67,7 +85,7 @@
           </div>
 
           <div class="resource flex-group-center">
-            <label for="system.lp.value" class="resource-label">{{localize 'arranFoundry.lp'}}</label>
+            <label class="resource-label">{{localize 'arranFoundry.lp'}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="system.lp.value" value="{{system.lp.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -76,7 +94,8 @@
           </div>
 
           <div class="resource flex-group-center">
-            <label id="rp" for="system.rp.value" class="resource-label rollable" data-roll="@system.hd@attributes.dexterity.mod+@level" data-label="recuperation">{{localize 'arranFoundry.rp'}}</label>
+            <label id="rp" class="resource-label rollable" data-roll="@system.hd@attributes.dexterity.mod+@level"
+                   data-label="recuperation">{{localize 'arranFoundry.rp'}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="system.rp.value" value="{{system.rp.value}}" data-dtype="Number"/>
               <span> / </span>
@@ -87,46 +106,72 @@
         </div>
       </div>
 
-    </div>
+      {{!-- Lower Tab --}}
+      {{!-- General Rolls --}}
+      <div>
+        <section class="grid grid-2col">
+          <aside class="sidebar">
+            <h2 style="text-align: center">{{localize 'arranFoundry.ui.attributes'}}</h2>
 
-  </header>
-
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" style="flex: 0" data-group="primary">
-    {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="features">Features</a>
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="paths">{{localize 'arranFoundry.paths'}}</a>
-    <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="spells">Spells</a>
-    <a class="item" data-tab="effects">Effects</a>
-  </nav>
-
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
-
-    {{!-- Owned Features Tab --}}
-    <div class="tab features" data-group="primary" data-tab="features">
-      <section class="grid grid-3col">
-        <aside class="sidebar">
-          <h2 style="text-align: center">{{localize 'arranFoundry.ui.attributes'}}</h2>
-
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-          <div class="abilities flexcol">
-            {{#each system.attributes as |attribute|}}
-            <div class="attribute flexrow flex-group-center">
-              <label for="system.attributes.{{@key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@attributes.{{@key}}.mod" data-label="{{@key}}">{{localize (concat 'arranFoundry.attributes.' @key)}}</label>
-              <input type="text" name="system.attributes.{{@key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
-              <input type="text" name="system.attributes.{{@key}}.custom" value="{{attribute.custom}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="d20+@attributes.{{@key}}.mod" data-label="{{@key}}">{{numberFormat attribute.mod decimals=0 sign=true}}</span>
+            <div class="attribute flexcol">
+              {{#each system.attributes as |attribute|}}
+              <div class="attribute flexrow flex-group-center">
+                <label class="resource-label rollable flexlarge align-left" data-roll="d20+@attributes.{{@key}}.mod"
+                       data-label="{{@key}}">{{localize (concat 'arranFoundry.attributes.' @key)}}</label>
+                <input type="text" name="system.attributes.{{@key}}.value" value="{{attribute.value}}"
+                       data-dtype="Number"/>
+                <input type="text" name="system.attributes.{{@key}}.custom" value="{{attribute.custom}}"
+                       data-dtype="Number"/>
+                <span class="ability-mod rollable" data-roll="d20+@attributes.{{@key}}.mod" data-label="{{@key}}">{{numberFormat attribute.mod decimals=0 sign=true}}</span>
+              </div>
+              {{/each}}
             </div>
-            {{/each}}
-          </div>
-        </aside>
+          </aside>
 
-      </section>
+          <div class="">
+            <div>
+              <h2 style="text-align: center">{{localize 'arranFoundry.ui.attacks'}}</h2>
+              <div class="flexcol">
+                <div class="flexrow flex-group-center">
+                  <label class="rollable flexlarge align-left"> {{localize 'arranFoundry.melee_attack'}}</label>
+                  <input type="number" name="system.attacks.melee.base" value="{{system.attacks.melee.base}}"
+                         disabled="disabled">
+                  <input type="number" name="system.attacks.melee.divers" value="{{system.attacks.melee.divers}}">
+                  <span class="rollable" data-roll="" data-label="{{melee}}">{{numberFormat system.attacks.melee.total decimals=0}}</span>
+                </div>
+                <div class="flexrow flex-group-center">
+                  <label class="rollable flexlarge align-left"> {{localize 'arranFoundry.range_attack'}}</label>
+                  <input type="number" name="system.attacks.range.base" value="{{system.attacks.range.base}}"
+                         disabled="disabled">
+                  <input type="number" name="system.attacks.range.divers" value="{{system.attacks.range.divers}}">
+                  <span class="rollable" data-roll="" data-label="{{melee}}">{{numberFormat system.attacks.range.total decimals=0}}</span>
+                </div>
+                <div class="flexrow flex-group-center">
+                  <label class="rollable flexlarge align-left"> {{localize 'arranFoundry.magic_attack'}}</label>
+                  <input type="number" name="system.attacks.magic.base" value="{{system.attacks.magic.base}}"
+                         disabled="disabled">
+                  <input type="number" name="system.attacks.magic.divers" value="{{system.attacks.magic.divers}}">
+                  <span name class="rollable" data-roll="" data-label="{{magic}}">{{numberFormat system.attacks.magic.total decimals=0}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2>Defense</h2>
+              <div class="flexrow flex-group-center">
+                <span>test</span>
+                <span>Base</span>
+                <span>Total</span>
+              </div>
+              <div class="flexrow flex-group-center">
+                <label class="rollable flexlarge align-left">defense</label>
+                <input type="number" name="system.defense.base" value="{{system.defense.base}}" disabled>
+                <input type="number" name="system.defense.total" value="{{system.defense.total}}">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
 
     {{!-- Biography Tab --}}

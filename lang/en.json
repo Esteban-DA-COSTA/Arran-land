@@ -24,6 +24,10 @@
   "arranFoundry.class": "Class",
   "arranFoundry.class_name": "Class name",
 
+  "arranFoundry.melee_attack": "Melee attack",
+  "arranFoundry.range_attack": "Range attack",
+  "arranFoundry.magic_attack": "magic attack",
+
   "arranFoundry.Sk_name": "Skill name",
   "arranFoundry.Sk_description": "Skill description",
 
@@ -71,6 +75,7 @@
   "arranFoundry.ui.general_information": "General Information",
   "arranFoundry.ui.resources": "Resources",
   "arranFoundry.ui.attributes": "Attributes",
+  "arranFoundry.ui.attacks": "Attaques",
 
   "arranFoundry.msg.no_enough_resources": "No enough resource to do this.",
   "arranFoundry.msg.recuperation": "Rest 5 minutes to regain health points."

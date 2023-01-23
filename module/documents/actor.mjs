@@ -153,11 +153,25 @@ export class ArranFoundryActor extends Actor {
     const systemData = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.attributes)) {
+    for (let [key, attribute] of Object.entries(systemData.attributes)) {
       // Calculate the modifier using d20 rules.
-      const finalMod = ability.custom + parseInt(ARRANFOUNDRY.defaultModificator[ability.value - 1]);
-      ability.mod = finalMod; // -1 to map the value to the array index
+      const finalMod = attribute.custom + ARRANFOUNDRY.defaultModificator[attribute.value - 1];
+      attribute.mod = finalMod; // -1 to map the value to the array index
     }
+
+    // Attacks
+    systemData.attacks.melee.base = systemData.level + systemData.attributes.strength.mod + 0
+    systemData.attacks.melee.total = systemData.attacks.melee.base + systemData.attacks.melee.divers
+
+    systemData.attacks.range.base = systemData.level + systemData.attributes.dexterity.mod + 0
+    systemData.attacks.range.total = systemData.attacks.range.base + systemData.attacks.range.divers
+
+    systemData.attacks.magic.base = systemData.level + systemData.attributes.intelligence.mod + 0
+    systemData.attacks.magic.total = systemData.attacks.magic.base + systemData.attacks.magic.divers
+
+    // Defense
+    systemData.defense.base = 10 + systemData.attributes.dexterity.mod
+    systemData.defense.total = systemData.defense.base // TODO add armor
   }
 
   /**

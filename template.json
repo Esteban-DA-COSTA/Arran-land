@@ -86,10 +86,27 @@
       },
       "battle_stats" : {
         "initiative" : 0,
-        "melee" : 0,
-        "range" : 0,
-        "magic" : 0,
-        "defence": 0
+        "attacks": {
+          "melee": {
+            "base": 0,
+            "divers": 0,
+            "total": 0
+          },
+          "range": {
+            "base": 0,
+            "divers": 0,
+            "total": 0
+          },
+          "magic": {
+            "base": 0,
+            "divers": 0,
+            "total": 0
+          }
+        },
+        "defense": {
+          "base": 10,
+          "total": 10
+        }
       }
     },
     "character": {
