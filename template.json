@@ -2,68 +2,81 @@
   "Actor": {
     "types": ["character", "monster", "companion"],
     "templates": {
-      "background": {
-        "history": "",
-        "apparence": "",
+      "general": {
+        "level": 1,
+        "class": "",
         "race": "elf",
         "culture": "black"
       },
+      "background": {
+        "history": "",
+        "apparence": ""
+      },
 
       "resources": {
-        "pv": {
+        "hp": {
           "min": 0,
           "value": 0,
           "max": 0
         },
-        "pm": {
+        "hd": "1d6",
+        "mp": {
           "min": 0,
           "value": 0,
           "max": 0
         },
-        "pc" :{
+        "lp": {
           "min" : 0,
           "value" : 0,
           "max" : 0
+        },
+        "rp": {
+          "min": 0,
+          "value": 5,
+          "max": 5
         }
       },
 
-      "characteristics": {
-        "strength":{
-          "min" : 0,
-          "value" : 10,
-          "max" : 20,
-          "mod" : 0
-        },
-        "dexterity":{
-          "min" : 0,
-          "value" : 10,
-          "max" : 20,
-          "mod" : 0
-        },
-        "constitution":{
-          "min" : 0,
-          "value" : 10,
-          "max" : 20,
-          "mod" : 0
-        },
-        "intelligence":{
-          "min" : 0,
-          "value" : 10,
-          "max" : 20,
-          "mod" : 0
-        },
-        "wisdom":{
-          "min" : 0,
-          "value" : 10,
-          "max" : 20,
-          "mod" : 0
-        },
-        "charisma":{
-          "min" : 0,
-          "value" : 10,
-          "max" : 20,
-          "mod" : 0
+      "attributes": {
+        "attributes": {
+          "strength":{
+            "min" : 1,
+            "value" : 10,
+            "max" : 20,
+            "mod" : 0
+          },
+          "dexterity":{
+            "min" : 1,
+            "value" : 10,
+            "max" : 20,
+            "mod" : 0
+          },
+          "constitution":{
+            "min" : 1,
+            "value" : 10,
+            "max" : 20,
+            "mod" : 0
+          },
+          "intelligence":{
+            "min" : 1,
+            "value" : 10,
+            "max" : 20,
+            "mod" : 0
+          },
+          "wisdom":{
+            "min" : 1,
+            "value" : 10,
+            "max" : 20,
+            "mod" : 0
+          },
+          "charisma":{
+            "min" : 1,
+            "value" : 10,
+            "max" : 20,
+            "mod" : 0
+          }
         }
+
       },
       "battle_stats" : {
         "initiative" : 0,
@@ -74,13 +87,13 @@
       }
     },
     "character": {
-      "templates": ["background", "characteristics", "resources", "battle_stats"]
+      "templates": ["general", "background", "attributes", "resources", "battle_stats"]
     },
     "monster": {
-      "templates": ["characteristics", "resources", "battle_stats"]
+      "templates": ["attributes", "resources", "battle_stats"]
     },
     "companion": {
-      "templates": ["characteristics", "resources", "battle_stats"]
+      "templates": ["attributes", "resources", "battle_stats"]
     }
   },
   "Item": {

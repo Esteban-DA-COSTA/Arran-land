@@ -1,0 +1,14 @@
+.blockedLabel {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 5px;
+    margin: 5px;
+}
+
+.centeredInput {
+    text-align: center !important;
+    margin-left: 5px !important;
+}

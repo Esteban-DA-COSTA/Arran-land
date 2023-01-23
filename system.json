@@ -6,7 +6,7 @@
   "compatibility": {
     "minimum": "10",
     "verified": "10.291",
-    "maximum": "10"
+    "maximum": "10.291"
   },
   "authors": [
     {
@@ -17,6 +17,7 @@
     }
   ],
   "esmodules": ["module/arranConfig.mjs"],
+  "styles": ["css/boilerplate.css", "css/arranFoundry.css"],
   "languages": [
     {
       "lang": "fr",
@@ -25,5 +26,7 @@
     }
   ],
   "gridDistance": 1.5,
-  "gridUnits": "m"
+  "gridUnits": "m",
+
+  "primaryTokenAttribute": "hp"
 }

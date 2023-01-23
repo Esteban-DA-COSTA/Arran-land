@@ -1,4 +1,5 @@
 import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs";
+import {ARRANFOUNDRY} from "../helpers/config.mjs";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -225,5 +226,123 @@ export class BoilerplateActorSheet extends ActorSheet {
       return roll;
     }
   }
+
+}
+
+export class ArranFoundryCharacterActorSheet extends ActorSheet {
+
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      classes: ["boilerplate", "sheet", "actor"],
+      template: "systems/arranFoundry/templates/actor/actor-sheet.html",
+      width: 740,
+      height: 820,
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
+    });
+  }
+
+  get template() {
+    return `systems/arranFoundry/templates/actor/actor-character-sheet.html`;
+  }
+
+  getData() {
+    // Retrieve the data structure from the base sheet. You can inspect or log
+    // the context variable to see the structure, but some key properties for
+    // sheets are the actor object, the data object, whether or not it's
+    // editable, the items array, and the effects array.
+    const context = super.getData();
+
+    // Use a safe clone of the actor data for further operations.
+    const actorData = this.actor.toObject(false);
+
+    // Add the actor's data to context.data for easier access, as well as flags.
+    context.system = actorData.system;
+    context.flags = actorData.flags;
+    context.race = ARRANFOUNDRY.race;
+    context.actorCulture = ARRANFOUNDRY.culture[actorData.system.race];
+
+    console.log(this);
+
+    // Prepare character data and items.
+    // this._prepareItems(context);
+    // this._prepareCharacterData(context);
+
+    // Add roll data for TinyMCE editors.
+    context.rollData = context.actor.getRollData();
+
+    // Prepare active effects
+    // context.effects = prepareActiveEffectCategories(this.actor.effects);
+
+    return context;
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // Add Inventory Item
+    html.find('.item-create').click(this._onItemCreate.bind(this));
+
+    html.find('.rollable').click(this._onRoll.bind(this));
+
+
+  }
+
+  _onRoll(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const data = element.dataset;
+
+    if (data.label = "recuperation") {
+      if (this.actor.system.rp.value === 0) {
+        return ChatMessage.create({content: game.i18n.localize("arranFoundry.msg.no_enough_resources")})
+      } else {
+        this.actor.system.rp.value--;
+        const roll = new Roll(data.roll, this.actor.getRollData());
+        roll.evaluate({async: false});
+        console.log(roll);
+        this.actor.system.hp.value += roll.total;
+        const msg = game.i18n.localize("arranFoundry.msg.recuperation")
+        roll.toMessage({
+          speaker: ChatMessage.getSpeaker({actor: this.actor}),
+          rollMode: game.settings.get('core', 'rollMode'),
+          flavor: msg
+        });
+        return roll;
+      }
+    }
+    console.log(data);
+
+    // if (event)
+
+  }
+
+  /**
+   * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onItemCreate(event) {
+    event.preventDefault();
+    console.log(event);
+    const header = event.currentTarget;
+    // Get the type of item to create.
+    // const type = header.dataset.type;
+    // // Grab any data associated with this control.
+    // const data = duplicate(header.dataset);
+    // // Initialize a default name.
+    // const name = `New ${type.capitalize()}`;
+    // // Prepare the item object.
+    // const itemData = {
+    //   name: name,
+    //   type: type,
+    //   system: data
+    // };
+    // // Remove the type from the dataset since it's in the itemData.type prop.
+    // delete itemData.system["type"];
+    //
+    // // Finally, create the item!
+    // return await Item.create(itemData, {parent: this.actor});
+  }
+
 
 }

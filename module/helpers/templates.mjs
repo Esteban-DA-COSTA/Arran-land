@@ -3,13 +3,13 @@
  * Pre-loaded templates are compiled and cached for fast access when rendering
  * @return {Promise}
  */
- export const preloadHandlebarsTemplates = async function() {
-  return loadTemplates([
+export const preloadHandlebarsTemplates = async function() {
+    return loadTemplates([
 
-    // Actor partials.
-    "systems/arranFoundry/templates/actor/parts/actor-features.html",
-    "systems/arranFoundry/templates/actor/parts/actor-items.html",
-    "systems/arranFoundry/templates/actor/parts/actor-spells.html",
-    "systems/arranFoundry/templates/actor/parts/actor-effects.html",
-  ]);
+        // Actor partials.
+        "systems/arranFoundry/templates/actor/parts/actor-features.html",
+        "systems/arranFoundry/templates/actor/parts/actor-items.html",
+        "systems/arranFoundry/templates/actor/parts/actor-effects.html",
+        "systems/arranFoundry/templates/actor/parts/actor-paths.html"
+    ]);
 };

@@ -3,16 +3,26 @@
   "ITEM.TypeSpell": "Sort",
   "ITEM.TypePath": "Voie",
 
+  "ACTOR.TypeCharacter": "Personnage",
+
   "arranFoundry.config.default_sheet": "Feuille par défaut",
   "arranFoundry.config.path_sheet": "Feuille de voie",
   "arranFoundry.config.weapon_sheet": "Feuille d'arme",
   "arranFoundry.config.spell_sheet": "Feuille de sort",
+  "arranFoundry.config.character_sheet": "Fiche de personnage",
 
+  "arranFoundry.hp": "Points de Vie",
+  "arranFoundry.mp": "Points de Magie",
+  "arranFoundry.lp": "Points de chance",
+  "arranFoundry.rp": "Points de Récupération",
+  "arranFoundry.level": "Niveau",
   "arranFoundry.damage": "Dommage",
   "arranFoundry.attack": "Attaque",
   "arranFoundry.attack_type": "Type d'attaque",
   "arranFoundry.name": "Nom",
   "arranFoundry.description": "Description",
+  "arranFoundry.class": "Classe",
+  "arranFoundry.class_name": "Nom de la classe",
 
   "arranFoundry.Sk_name": "Nom de la compétence",
   "arranFoundry.Sk_description": "Description de la compétence",
@@ -20,9 +30,49 @@
   "arranFoundry.Sp_cost": "Coût",
   "arranFoundry.action_type": "Type d'action",
 
+  "arranFoundry.paths": "Voies",
   "arranFoundry.path_type": "Type de voie",
   "arranFoundry.path_profile": "Profil",
   "arranFoundry.path_race": "Peuple",
   "arranFoundry.path_culture": "Culture",
-  "arranFoundry.path_prestige": "Prestige"
+  "arranFoundry.path_prestige": "Prestige",
+
+  "arranFoundry.attributes.strength": "Force",
+  "arranFoundry.attributes.dexterity": "Dexterité",
+  "arranFoundry.attributes.constitution": "Constitution",
+  "arranFoundry.attributes.intelligence": "Intelligence",
+  "arranFoundry.attributes.wisdom": "Sagesse",
+  "arranFoundry.attributes.charisma": "Charisme",
+
+  "arranFoundry.race.human": "Humain",
+  "arranFoundry.race.elf": "Elfe",
+  "arranFoundry.race.dwarf": "Nain",
+  "arranFoundry.race.green_skin": "Peau Verte",
+
+  "arranFoundry.culture.north": "Nord",
+  "arranFoundry.culture.east": "Est",
+  "arranFoundry.culture.west": "Ouest",
+  "arranFoundry.culture.south": "Sud",
+  "arranFoundry.culture.white": "Blanc",
+  "arranFoundry.culture.black": "Noir",
+  "arranFoundry.culture.blue": "Bleu",
+  "arranFoundry.culture.forest": "Silvain",
+  "arranFoundry.culture.half_elf": "Semi Elfe",
+  "arranFoundry.culture.temple": "Temple",
+  "arranFoundry.culture.talion": "Talion",
+  "arranFoundry.culture.forge": "Forge",
+  "arranFoundry.culture.shield": "Bouclier",
+  "arranFoundry.culture.wanderers": "Errants",
+  "arranFoundry.culture.orc": "Orc",
+  "arranFoundry.culture.ogre": "Ogre",
+  "arranFoundry.culture.goblin": "Gobelin",
+  "arranFoundry.culture.abomination": "Abomination",
+
+  "arranFoundry.ui.general_information": "Informations Générales",
+  "arranFoundry.ui.resources": "Ressources",
+  "arranFoundry.ui.attributes": "Caractéristiques",
+
+  "arranFoundry.msg.no_enough_resources": "Pas assez de ressource pour faire cela.",
+  "arranFoundry.msg.recuperation": "Se repose 5 minutes pour regagner des points de vie."
+
 }

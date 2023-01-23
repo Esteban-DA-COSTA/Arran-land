@@ -1,8 +1,8 @@
 // Import document classes.
-import { BoilerplateActor } from "./documents/actor.mjs";
+import {ArranFoundryActor, BoilerplateActor} from "./documents/actor.mjs";
 import { BoilerplateItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { BoilerplateActorSheet } from "./sheets/actor-sheet.mjs";
+import {ArranFoundryCharacterActorSheet, BoilerplateActorSheet} from "./sheets/actor-sheet.mjs";
 import {
   ArranFoundryItemSheet, ArranFoundryPathItemSheet, ArranFoundrySpellItemSheet, ArranFoundryWeaponItemSheet,
 
@@ -25,6 +25,10 @@ Hooks.once('init', async function() {
     rollItemMacro
   };
 
+  game.arranFoundry = {
+    ArranFoundryActor
+  }
+
   // Add custom constants for configuration.
   CONFIG.BOILERPLATE = BOILERPLATE;
 
@@ -33,17 +37,18 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d20 + @abilities.dex.mod",
+    formula: "@initiative",
     decimals: 2
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = BoilerplateActor;
+  CONFIG.Actor.documentClass = ArranFoundryActor;
   CONFIG.Item.documentClass = BoilerplateItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("arranFoundry", BoilerplateActorSheet, { makeDefault: true });
+  Actors.registerSheet("arranFoundry", ArranFoundryCharacterActorSheet, { label: game.i18n.localize("arranFoundry.config.character_sheet"), type: ["character"], makeDefault: true })
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("arranFoundry", ArranFoundryItemSheet, { label: game.i18n.localize("arranFoundry.config.default_sheet"), makeDefault: true });
   Items.registerSheet("arranFoundry", ArranFoundryPathItemSheet, { label: game.i18n.localize("arranFoundry.config.path_sheet"), type: ["path"], makeDefault: true })

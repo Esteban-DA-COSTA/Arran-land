@@ -3,16 +3,26 @@
   "ITEM.TypeSpell": "Spell",
   "ITEM.TypePath": "Path",
 
+  "ACTOR.TypeCharacter": "Character",
+
   "arranFoundry.config.default_sheet": "Default Sheet",
   "arranFoundry.config.path_sheet": "Path Sheet",
   "arranFoundry.config.weapon_sheet": "Weapon Sheet",
   "arranFoundry.config.spell_sheet": "Spell Sheet",
+  "arranFoundry.config.character_sheet": "Character sheet",
 
+  "arranFoundry.hp": "Health Points",
+  "arranFoundry.mp": "Magic Points",
+  "arranFoundry.lp": "Luck Points",
+  "arranFoundry.rp": "Recuperation Points",
+  "arranFoundry.level": "Level",
   "arranFoundry.damage": "Damage",
   "arranFoundry.attack": "Attack",
   "arranFoundry.attack_type": "Attack type",
   "arranFoundry.name": "Name",
   "arranFoundry.description": "Description",
+  "arranFoundry.class": "Class",
+  "arranFoundry.class_name": "Class name",
 
   "arranFoundry.Sk_name": "Skill name",
   "arranFoundry.Sk_description": "Skill description",
@@ -20,9 +30,48 @@
   "arranFoundry.Sp_cost": "Cost",
   "arranFoundry.action_type": "Action type",
 
+  "arranFoundry.paths": "Paths",
   "arranFoundry.path_type": "Path type",
   "arranFoundry.path_profile": "Profile",
   "arranFoundry.path_race": "Race",
   "arranFoundry.path_culture": "Culture",
-  "arranFoundry.path_prestige": "Prestige"
+  "arranFoundry.path_prestige": "Prestige",
+
+  "arranFoundry.attributes.strength": "Strength",
+  "arranFoundry.attributes.dexterity": "Dexterity",
+  "arranFoundry.attributes.constitution": "Constitution",
+  "arranFoundry.attributes.intelligence": "Intelligence",
+  "arranFoundry.attributes.wisdom": "Wisdom",
+  "arranFoundry.attributes.charisma": "Charisma",
+
+  "arranFoundry.race.human": "Human",
+  "arranFoundry.race.elf": "Elf",
+  "arranFoundry.race.dwarf": "Dwarf",
+  "arranFoundry.race.green_skin": "Green Skin",
+
+  "arranFoundry.culture.north": "North",
+  "arranFoundry.culture.east": "East",
+  "arranFoundry.culture.west": "West",
+  "arranFoundry.culture.south": "South",
+  "arranFoundry.culture.white": "White",
+  "arranFoundry.culture.black": "Black",
+  "arranFoundry.culture.blue": "Blue",
+  "arranFoundry.culture.forest": "Forest",
+  "arranFoundry.culture.half_elf": "Half elf",
+  "arranFoundry.culture.temple": "Temple",
+  "arranFoundry.culture.talion": "Talion",
+  "arranFoundry.culture.forge": "Forge",
+  "arranFoundry.culture.shield": "Shield",
+  "arranFoundry.culture.wanderers": "Wanderers",
+  "arranFoundry.culture.orc": "Orc",
+  "arranFoundry.culture.ogre": "Ogre",
+  "arranFoundry.culture.goblin": "Goblin",
+  "arranFoundry.culture.abomination": "Abomination",
+
+  "arranFoundry.ui.general_information": "General Information",
+  "arranFoundry.ui.resources": "Resources",
+  "arranFoundry.ui.attributes": "Attributes",
+
+  "arranFoundry.msg.no_enough_resources": "No enough resource to do this.",
+  "arranFoundry.msg.recuperation": "Rest 5 minutes to regain health points."
 }
