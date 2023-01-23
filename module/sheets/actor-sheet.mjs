@@ -292,7 +292,7 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const data = element.dataset;
 
-    if (data.label = "recuperation") {
+    if (data.label === "recuperation") {
       if (this.actor.system.rp.value === 0) {
         return ChatMessage.create({content: game.i18n.localize("arranFoundry.msg.no_enough_resources")})
       } else {

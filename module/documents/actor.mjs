@@ -123,7 +123,6 @@ export class ArranFoundryActor extends Actor {
   }
 
   prepareDerivedData() {
-    console.log("OK1");
     const actorData = this;
     const systemData = actorData.system;
     const flags = actorData.flags.boilerplate || {};
@@ -156,7 +155,8 @@ export class ArranFoundryActor extends Actor {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(systemData.attributes)) {
       // Calculate the modifier using d20 rules.
-      ability.mod = ARRANFOUNDRY.defaultModificator[ability.value - 1] // -1 to map the value to the array index
+      const finalMod = ability.custom + parseInt(ARRANFOUNDRY.defaultModificator[ability.value - 1]);
+      ability.mod = finalMod; // -1 to map the value to the array index
     }
   }
 
