@@ -102,7 +102,7 @@ export class BoilerplateActorSheet extends ActorSheet {
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
       // Append to gear.
-      if (i.type === 'item') {
+      if (i.type === 'weapon') {
         gear.push(i);
       }
       // Append to features.

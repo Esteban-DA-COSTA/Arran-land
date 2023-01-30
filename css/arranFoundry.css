@@ -12,3 +12,8 @@
     text-align: center !important;
     margin-left: 5px !important;
 }
+
+.full-center {
+    width: -webkit-fill-available;
+    text-align: center
+}
