@@ -85,6 +85,12 @@ export class BoilerplateActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    const paths = {
+      "race": {},
+      "culture": {},
+      "prestige": {},
+      "profile": []
+    }
     const spells = {
       0: [],
       1: [],
@@ -237,7 +243,7 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
       template: "systems/arranFoundry/templates/actor/actor-sheet.html",
       width: 740,
       height: 820,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "features" }]
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "general" }]
     });
   }
 
@@ -264,7 +270,7 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     console.log(this);
 
     // Prepare character data and items.
-    // this._prepareItems(context);
+    this._prepareItems(context);
     // this._prepareCharacterData(context);
 
     // Add roll data for TinyMCE editors.
@@ -284,7 +290,68 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
 
     html.find('.rollable').click(this._onRoll.bind(this));
 
+    html.find('.item-edit').click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      item.sheet.render(true);
+    });
 
+    html.find('.item-delete').click(ev => {
+      const li = $(ev.currentTarget).parents(".item");
+      const item = this.actor.items.get(li.data("itemId"));
+      item.delete();
+      li.slideUp(200, () => this.render(false));
+    });
+
+
+  }
+
+  _prepareItems(context) {
+    // Initialize containers.
+    const gear = [];
+    const features = [];
+    const paths = {
+      "race": {},
+      "culture": {},
+      "prestige": {},
+      "profile": []
+    }
+    const spells = {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+      5: [],
+      6: [],
+      7: [],
+      8: [],
+      9: []
+    };
+
+    // Iterate through items, allocating to containers
+    for (let i of context.items) {
+      i.img = i.img || DEFAULT_TOKEN;
+      // Append to gear.
+      if (i.type === 'weapon') {
+        gear.push(i);
+      }
+      // Append to features.
+      else if (i.type === 'feature') {
+        features.push(i);
+      }
+      // Append to spells.
+      else if (i.type === 'spell') {
+        if (i.system.spellLevel != undefined) {
+          spells[i.system.spellLevel].push(i);
+        }
+      }
+    }
+
+    // Assign and return
+    context.gear = gear;
+    context.features = features;
+    context.spells = spells;
   }
 
   _onRoll(event) {
@@ -299,7 +366,6 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
         this.actor.system.rp.value--;
         const roll = new Roll(data.roll, this.actor.getRollData());
         roll.evaluate({async: false});
-        console.log(roll);
         this.actor.system.hp.value += roll.total;
         const msg = game.i18n.localize("arranFoundry.msg.recuperation")
         roll.toMessage({
@@ -310,7 +376,6 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
         return roll;
       }
     }
-    console.log(data);
 
     // if (event)
 
@@ -323,26 +388,41 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
    */
   async _onItemCreate(event) {
     event.preventDefault();
-    console.log(event);
     const header = event.currentTarget;
     // Get the type of item to create.
-    // const type = header.dataset.type;
-    // // Grab any data associated with this control.
-    // const data = duplicate(header.dataset);
-    // // Initialize a default name.
-    // const name = `New ${type.capitalize()}`;
-    // // Prepare the item object.
-    // const itemData = {
-    //   name: name,
-    //   type: type,
-    //   system: data
-    // };
-    // // Remove the type from the dataset since it's in the itemData.type prop.
-    // delete itemData.system["type"];
-    //
-    // // Finally, create the item!
-    // return await Item.create(itemData, {parent: this.actor});
+    const type = header.dataset.type;
+    // Grab any data associated with this control.
+    const data = duplicate(header.dataset);
+    // Initialize a default name.
+    const name = `New ${type.capitalize()}`;
+    // Prepare the item object.
+    const itemData = {
+      name: name,
+      type: type,
+      system: data
+    };
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.system["type"];
+
+    // Finally, create the item!
+    return await Item.create(itemData, {parent: this.actor});
   }
 
+  async _onDropItem(event, data) {
+    console.log(event);
+    const targetNode = event.target;
+    const itemTab = targetNode.closest(".items");
+    console.log(data);
+    const item = await Item.implementation.fromDropData(data);
+    const itemData = item.toObject();
+    console.log(itemData);
+
+    if (itemData.type !== "path" && !!itemTab) {
+      console.log("ok");
+      super._onDropItem(event, data);
+    } else {
+      alert("Cannot drop here");
+    }
+  }
 
 }

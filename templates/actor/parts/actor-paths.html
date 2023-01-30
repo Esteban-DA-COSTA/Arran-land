@@ -1,13 +1,64 @@
 <!--Race/culture-->
-<div class="items-list">
-  <div class="item">
-    <label>{{localize 'arranFoundry.path_race'}}</label>
+<div class="grid grid-2col flex-group-center">
+  <!--  Race/Culture  -->
+  <div style="grid-column: auto" class="grid">
+    <div>
+      <h2>{{localize 'arranFoundry.path_race'}}</h2>
+      {{#if (not paths.race)}}
+      <button>add race path</button>
+      {{else}}
+      <p>toto</p>
+      {{/if}}
+    </div>
+    <div>
+      <h2>{{localize 'arranFoundry.path_culture'}}</h2>
+      {{#if (not paths.culture)}}
+      <button>add race path</button>
+      {{else}}
+      <p>toto</p>
+      {{/if}}
+    </div>
   </div>
-  <div class="item">
-    <label>{{localize 'arranFoundry.path_culture'}}</label>
+
+  <!--  Prestige  -->
+  <div>
+    <h2>Prestige</h2>
+    {{#if (lt system.level 8)}}
+    <p>Unlock level 8</p>
+    {{else}}
+    {{#if (not paths.prestige)}}
+    <button>add race path</button>
+    {{else}}
+    <p>toto</p>
+    {{/if}}
+    {{/if}}
   </div>
 </div>
-<!--Profiles/prestige-->
-<div class="items-list">
 
+<h2 class="flex-group-center">Profile</h2>
+<div class="grid grid-3col">
+  <div>
+    <h3>Path 1</h3>
+    {{#if (not paths.profile)}}
+    <button>add profile path</button>
+    {{else}}
+    <p>toto</p>
+    {{/if}}
+  </div>
+  <div>
+    <h3>Path 2</h3>
+    {{#if (not paths.profile)}}
+    <button>add profile path</button>
+    {{else}}
+    <p>toto</p>
+    {{/if}}
+  </div>
+  <div>
+    <h3>Path 3</h3>
+    {{#if (not paths.profile)}}
+    <button>add profile path</button>
+    {{else}}
+    <p>toto</p>
+    {{/if}}
+  </div>
 </div>
