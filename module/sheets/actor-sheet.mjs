@@ -297,10 +297,18 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     });
 
     html.find('.item-delete').click(ev => {
-      const li = $(ev.currentTarget).parents(".item");
-      const item = this.actor.items.get(li.data("itemId"));
+      const dataset = ev.currentTarget.dataset;
+      let item;
+      console.log(dataset.itemId);
+      if (dataset.itemId) {
+        item = this.actor.items.get(dataset.itemId);
+        console.log(item);
+      } else {
+        const li = $(ev.currentTarget).parents(".item");
+        item = this.actor.items.get(li.data("itemId"));
+        li.slideUp(200, () => this.render(false));
+      }
       item.delete();
-      li.slideUp(200, () => this.render(false));
     });
 
 
@@ -311,9 +319,9 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     const gear = [];
     const features = [];
     const paths = {
-      "race": {},
-      "culture": {},
-      "prestige": {},
+      "race": null,
+      "culture": null,
+      "prestige": null,
       "profile": []
     }
     const spells = {
@@ -346,12 +354,31 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
           spells[i.system.spellLevel].push(i);
         }
       }
+      else if (i.type === 'path') {
+        console.log(i);
+        switch (i.system.path_type) {
+          case "race":
+            paths.race = i;
+            break;
+          case "culture":
+            paths.culture = i;
+            break;
+          case "prestige":
+            paths.prestige = i;
+            break;
+          case "profile":
+            if (paths.profile.length < 3)
+              paths.profile.push(i);
+            break;
+        }
+      }
     }
 
     // Assign and return
     context.gear = gear;
     context.features = features;
     context.spells = spells;
+    context.paths = paths;
   }
 
   _onRoll(event) {
@@ -403,6 +430,7 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system["type"];
+    console.log(data);
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
@@ -412,15 +440,53 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     console.log(event);
     const targetNode = event.target;
     const itemTab = targetNode.closest(".items");
+    const pathTab = targetNode.closest(".paths");
     console.log(data);
     const item = await Item.implementation.fromDropData(data);
     const itemData = item.toObject();
     console.log(itemData);
 
+    const context = this.getData();
+
     if (itemData.type !== "path" && !!itemTab) {
       console.log("ok");
       super._onDropItem(event, data);
-    } else {
+    } else if(itemData.type === "path" && !!pathTab) {
+      console.log("Add path");
+      switch (itemData.system.path_type) {
+        case "race":
+          if (!context.paths.race) {
+            console.log("Can add");
+            super._onDropItem(event, data);
+          } else {
+            alert("already one");
+          }
+          break;
+        case "culture":
+          if (!context.paths.culture) {
+            console.log("Can add");
+            super._onDropItem(event, data);
+          } else {
+            alert("already one");
+          }
+          break;
+        case "prestige":
+          if (context.lv >=8) {
+            if (!context.paths.profile) {
+              console.log("Can add")
+              super._onDropItem(event, data);
+            }
+          }
+          break;
+        case "profile":
+          if (!context.paths.profile.length < 3) {
+            console.log("Can add")
+            super._onDropItem(event, data);
+          }
+          break;
+      }
+    }
+    else {
       alert("Cannot drop here");
     }
   }

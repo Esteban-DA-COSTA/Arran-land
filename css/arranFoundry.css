@@ -17,3 +17,14 @@
     width: -webkit-fill-available;
     text-align: center
 }
+
+.openable:hover, .openable:focus {
+    color: #000;
+    text-shadow: 0 0 10px gray;
+    cursor: pointer;
+}
+
+.float-right-icon {
+    float: right;
+    margin: 5px 2px 0 0;
+}

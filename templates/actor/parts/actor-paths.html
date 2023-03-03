@@ -1,64 +1,148 @@
 <!--Race/culture-->
-<div class="grid grid-2col flex-group-center">
+<div class="grid grid-2col flex-group-center paths">
   <!--  Race/Culture  -->
   <div style="grid-column: auto" class="grid">
-    <div>
-      <h2>{{localize 'arranFoundry.path_race'}}</h2>
+    <div style="border: 1px solid gray">
+      <div>
+        {{#if paths.race}}
+        <a class="item-control item-delete float-right-icon" data-item-id="{{paths.race._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+        {{/if}}
+        <h2>{{localize 'arranFoundry.path_race'}}</h2>
+      </div>
       {{#if (not paths.race)}}
-      <button>add race path</button>
+      <button class="item-create" data-type="path" data-path_type="race">add path</button>
       {{else}}
-      <p>toto</p>
+      <div class="item" data-item-id="{{paths.race._id}}">
+        <h4 class="item-edit openable">{{paths.race.name}}</h4>
+        {{#each paths.race.system.skills as |skill|}}
+          {{#if skill.isAcquired}}
+            <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
+          {{else}}
+            <p style="color: #676363" title="{{skill.description}}">{{skill.name}}</p>
+          {{/if}}
+        {{/each}}
+      </div>
       {{/if}}
     </div>
-    <div>
-      <h2>{{localize 'arranFoundry.path_culture'}}</h2>
+    <div style="border: 1px solid gray">
+      <div>
+        {{#if paths.culture}}
+        <a class="item-control item-delete float-right-icon" data-item-id="{{paths.culture._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+        {{/if}}
+        <h2>{{localize 'arranFoundry.path_culture'}}</h2>
+      </div>
       {{#if (not paths.culture)}}
-      <button>add race path</button>
+        <button class="item-create" data-type="path" data-path_type="culture">add path</button>
       {{else}}
-      <p>toto</p>
+        <div class="item" data-item-id="{{paths.culture._id}}">
+          <h4 class="item-edit openable">{{paths.culture.name}}</h4>
+          {{#each paths.culture.system.skills as |skill|}}
+            {{#if skill.isAcquired}}
+              <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
+            {{else}}
+          <p style="color: #676363" title="{{skill.description}}">{{skill.name}}</p>
+            {{/if}}
+          {{/each}}
+        </div>
       {{/if}}
     </div>
   </div>
 
   <!--  Prestige  -->
-  <div>
-    <h2>Prestige</h2>
+  <div style="height: -webkit-fill-available">
+    <div>
+      {{#if paths.prestige}}
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.prestige._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      {{/if}}
+      <h2>Prestige</h2>
+    </div>
     {{#if (lt system.level 8)}}
     <p>Unlock level 8</p>
     {{else}}
     {{#if (not paths.prestige)}}
-    <button>add race path</button>
+    <button class="item-create" data-type="path" data-path_type="prestige">add path</button>
     {{else}}
-    <p>toto</p>
+    <div class="item" data-item-id="{{paths.prestige._id}}">
+      <h4 class="item-edit openable">{{paths.prestige.name}}</h4>
+      {{#each paths.prestige.system.skills as |skill|}}
+      {{#if skill.isAcquired}}
+      <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
+      {{else}}
+      <p style="color: #676363" title="{{skill.description}}">{{skill.name}}</p>
+      {{/if}}
+      {{/each}}
+    </div>
     {{/if}}
     {{/if}}
   </div>
 </div>
 
 <h2 class="flex-group-center">Profile</h2>
-<div class="grid grid-3col">
-  <div>
-    <h3>Path 1</h3>
-    {{#if (not paths.profile)}}
-    <button>add profile path</button>
+<div class="grid grid-3col flex-group-center">
+  <div style="border: 1px solid gray">
+    <div>
+      {{#if paths.profile.[0]}}
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[0]._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      {{/if}}
+      <h3>Path 1</h3>
+    </div>
+    {{#if (not paths.profile.[0])}}
+    <button class="item-create" data-type="path" data-path_type="profile">add path</button>
     {{else}}
-    <p>toto</p>
+    <div class="item" data-item-id="{{paths.profile.[0]._id}}">
+      <h4 class="item-edit openable">{{paths.profile.[0].name}}</h4>
+      {{#each paths.profile.[0].system.skills as |skill|}}
+      {{#if skill.isAcquired}}
+      <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
+      {{else}}
+      <p style="color: #676363" title="{{skill.description}}">{{skill.name}}</p>
+      {{/if}}
+      {{/each}}
+    </div>
     {{/if}}
   </div>
-  <div>
-    <h3>Path 2</h3>
-    {{#if (not paths.profile)}}
-    <button>add profile path</button>
+  <div style="border: 1px solid gray">
+    <div>
+      {{#if paths.profile.[1]}}
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[1]._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      {{/if}}
+      <h3>Path 2</h3>
+    </div>
+    {{#if (not paths.profile.[1])}}
+    <button class="item-create" data-type="path" data-path_type="profile">add path</button>
     {{else}}
-    <p>toto</p>
+    <div class="item" data-item-id="{{paths.profile.[0]._id}}">
+      <h4 class="item-edit openable">{{paths.profile.[0].name}}</h4>
+      {{#each paths.profile.[0].system.skills as |skill|}}
+      {{#if skill.isAcquired}}
+      <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
+      {{else}}
+      <p style="color: #676363" title="{{skill.description}}">{{skill.name}}</p>
+      {{/if}}
+      {{/each}}
+    </div>
     {{/if}}
   </div>
-  <div>
-    <h3>Path 3</h3>
-    {{#if (not paths.profile)}}
-    <button>add profile path</button>
+  <div style="border: 1px solid gray">
+    <div>
+      {{#if paths.profile.[2]}}
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[2]._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      {{/if}}
+      <h3>Path 3</h3>
+    </div>
+    {{#if (not paths.profile.[2])}}
+    <button class="item-create" data-type="path" data-path_type="profile">add path</button>
     {{else}}
-    <p>toto</p>
+    <div class="item" data-item-id="{{paths.profile.[0]._id}}">
+      <h4 class="item-edit openable">{{paths.profile.[0].name}}</h4>
+      {{#each paths.profile.[0].system.skills as |skill|}}
+      {{#if skill.isAcquired}}
+      <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
+      {{else}}
+      <p style="color: #676363" title="{{skill.description}}">{{skill.name}}</p>
+      {{/if}}
+      {{/each}}
+    </div>
     {{/if}}
   </div>
 </div>
