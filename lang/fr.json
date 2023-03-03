@@ -79,6 +79,10 @@
   "arranFoundry.ui.resources": "Ressources",
   "arranFoundry.ui.attributes": "Caractéristiques",
   "arranFoundry.ui.attacks": "Attaques",
+  "arranFoundry.ui.add_path": "Ajouter Voie",
+  "arranFoundry.ui.delete_path": "Supprimer Voie",
+  "arranFoundry.ui.new": "Nouvel(le)",
+  "arranFoundry.ui.unlock_prestige": "Voie de prestige débloquée niveau 8",
 
   "arranFoundry.msg.no_enough_resources": "Pas assez de ressource pour faire cela.",
   "arranFoundry.msg.recuperation": "Se repose 5 minutes pour regagner des points de vie."

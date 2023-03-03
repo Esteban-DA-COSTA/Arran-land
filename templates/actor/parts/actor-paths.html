@@ -5,12 +5,12 @@
     <div style="border: 1px solid gray">
       <div>
         {{#if paths.race}}
-        <a class="item-control item-delete float-right-icon" data-item-id="{{paths.race._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+        <a class="item-control item-delete float-right-icon" data-item-id="{{paths.race._id}}" title="{{localize 'arranFoundry.ui.delete_path'}}"><i class="fas fa-trash"></i></a>
         {{/if}}
         <h2>{{localize 'arranFoundry.path_race'}}</h2>
       </div>
       {{#if (not paths.race)}}
-      <button class="item-create" data-type="path" data-path_type="race">add path</button>
+      <button class="item-create" data-type="path" data-path_type="race">{{localize 'arranFoundry.ui.add_path'}}</button>
       {{else}}
       <div class="item" data-item-id="{{paths.race._id}}">
         <h4 class="item-edit openable">{{paths.race.name}}</h4>
@@ -27,12 +27,12 @@
     <div style="border: 1px solid gray">
       <div>
         {{#if paths.culture}}
-        <a class="item-control item-delete float-right-icon" data-item-id="{{paths.culture._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+        <a class="item-control item-delete float-right-icon" data-item-id="{{paths.culture._id}}" title="{{localize 'arranFoundry.ui.delete_path'}}"><i class="fas fa-trash"></i></a>
         {{/if}}
         <h2>{{localize 'arranFoundry.path_culture'}}</h2>
       </div>
       {{#if (not paths.culture)}}
-        <button class="item-create" data-type="path" data-path_type="culture">add path</button>
+        <button class="item-create" data-type="path" data-path_type="culture">{{localize 'arranFoundry.ui.add_path'}}</button>
       {{else}}
         <div class="item" data-item-id="{{paths.culture._id}}">
           <h4 class="item-edit openable">{{paths.culture.name}}</h4>
@@ -52,15 +52,15 @@
   <div style="height: -webkit-fill-available">
     <div>
       {{#if paths.prestige}}
-      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.prestige._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.prestige._id}}" title="{{localize 'arranFoundry.ui.delete_path'}}"><i class="fas fa-trash"></i></a>
       {{/if}}
       <h2>Prestige</h2>
     </div>
     {{#if (lt system.level 8)}}
-    <p>Unlock level 8</p>
+    <p>{{localize 'arranFoundry.ui.unlock_prestige'}}</p>
     {{else}}
     {{#if (not paths.prestige)}}
-    <button class="item-create" data-type="path" data-path_type="prestige">add path</button>
+    <button class="item-create" data-type="path" data-path_type="prestige">{{localize 'arranFoundry.ui.add_path'}}</button>
     {{else}}
     <div class="item" data-item-id="{{paths.prestige._id}}">
       <h4 class="item-edit openable">{{paths.prestige.name}}</h4>
@@ -77,17 +77,17 @@
   </div>
 </div>
 
-<h2 class="flex-group-center">Profile</h2>
-<div class="grid grid-3col flex-group-center">
+<h2 class="flex-group-center">{{localize 'arranFoundry.path_profile'}}</h2>
+<div class="grid grid-3col flex-group-center paths">
   <div style="border: 1px solid gray">
     <div>
       {{#if paths.profile.[0]}}
-      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[0]._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[0]._id}}" title="{{localize 'arranFoundry.ui.delete_path'}}"><i class="fas fa-trash"></i></a>
       {{/if}}
-      <h3>Path 1</h3>
+      <h3>{{localize 'ITEM.TypePath'}} 1</h3>
     </div>
     {{#if (not paths.profile.[0])}}
-    <button class="item-create" data-type="path" data-path_type="profile">add path</button>
+    <button class="item-create" data-type="path" data-path_type="profile">{{localize 'arranFoundry.ui.add_path'}}</button>
     {{else}}
     <div class="item" data-item-id="{{paths.profile.[0]._id}}">
       <h4 class="item-edit openable">{{paths.profile.[0].name}}</h4>
@@ -104,16 +104,16 @@
   <div style="border: 1px solid gray">
     <div>
       {{#if paths.profile.[1]}}
-      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[1]._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[1]._id}}" title="{{localize 'arranFoundry.ui.delete_path'}}"><i class="fas fa-trash"></i></a>
       {{/if}}
-      <h3>Path 2</h3>
+      <h3>{{localize 'ITEM.TypePath'}} 2</h3>
     </div>
     {{#if (not paths.profile.[1])}}
-    <button class="item-create" data-type="path" data-path_type="profile">add path</button>
+    <button class="item-create" data-type="path" data-path_type="profile">{{localize 'arranFoundry.ui.add_path'}}</button>
     {{else}}
-    <div class="item" data-item-id="{{paths.profile.[0]._id}}">
-      <h4 class="item-edit openable">{{paths.profile.[0].name}}</h4>
-      {{#each paths.profile.[0].system.skills as |skill|}}
+    <div class="item" data-item-id="{{paths.profile.[1]._id}}">
+      <h4 class="item-edit openable">{{paths.profile.[1].name}}</h4>
+      {{#each paths.profile.[1].system.skills as |skill|}}
       {{#if skill.isAcquired}}
       <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
       {{else}}
@@ -126,16 +126,16 @@
   <div style="border: 1px solid gray">
     <div>
       {{#if paths.profile.[2]}}
-      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[2]._id}}" title="Delete Item"><i class="fas fa-trash"></i></a>
+      <a class="item-control item-delete float-right-icon" data-item-id="{{paths.profile.[2]._id}}" title="{{localize 'arranFoundry.ui.delete_path'}}"><i class="fas fa-trash"></i></a>
       {{/if}}
-      <h3>Path 3</h3>
+      <h3>{{localize 'ITEM.TypePath'}} 3</h3>
     </div>
     {{#if (not paths.profile.[2])}}
-    <button class="item-create" data-type="path" data-path_type="profile">add path</button>
+    <button class="item-create" data-type="path" data-path_type="profile">{{localize 'arranFoundry.ui.add_path'}}</button>
     {{else}}
-    <div class="item" data-item-id="{{paths.profile.[0]._id}}">
-      <h4 class="item-edit openable">{{paths.profile.[0].name}}</h4>
-      {{#each paths.profile.[0].system.skills as |skill|}}
+    <div class="item" data-item-id="{{paths.profile.[2]._id}}">
+      <h4 class="item-edit openable">{{paths.profile.[2].name}}</h4>
+      {{#each paths.profile.[2].system.skills as |skill|}}
       {{#if skill.isAcquired}}
       <p title="{{skill.description}}"><b>{{skill.name}}</b></p>
       {{else}}
