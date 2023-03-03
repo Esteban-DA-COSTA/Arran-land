@@ -2,6 +2,7 @@
   "ITEM.TypeWeapon": "Arme",
   "ITEM.TypeSpell": "Sort",
   "ITEM.TypePath": "Voie",
+  "ITEM.TypeArmor": "Armure",
 
   "ACTOR.TypeCharacter": "Personnage",
 
@@ -10,6 +11,7 @@
   "arranFoundry.config.weapon_sheet": "Feuille d'arme",
   "arranFoundry.config.spell_sheet": "Feuille de sort",
   "arranFoundry.config.character_sheet": "Fiche de personnage",
+  "arranFoundry.config.armor_sheet": "Feuille d'armure",
 
   "arranFoundry.hp": "Points de Vie",
   "arranFoundry.mp": "Points de Magie",
@@ -23,6 +25,7 @@
   "arranFoundry.description": "Description",
   "arranFoundry.class": "Classe",
   "arranFoundry.class_name": "Nom de la classe",
+  "arranFoundry.location": "Localisation",
 
   "arranFoundry.melee_attack": "Attaque de mêlée",
   "arranFoundry.range_attack": "Attaque à distance",

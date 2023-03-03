@@ -2,6 +2,7 @@
   "ITEM.TypeWeapon": "Weapon",
   "ITEM.TypeSpell": "Spell",
   "ITEM.TypePath": "Path",
+  "ITEM.TypeArmor": "Armor",
 
   "ACTOR.TypeCharacter": "Character",
 
@@ -10,6 +11,7 @@
   "arranFoundry.config.weapon_sheet": "Weapon Sheet",
   "arranFoundry.config.spell_sheet": "Spell Sheet",
   "arranFoundry.config.character_sheet": "Character sheet",
+  "arranFoundry.config.armor_sheet": "Armor sheet",
 
   "arranFoundry.hp": "Health Points",
   "arranFoundry.mp": "Magic Points",
@@ -23,6 +25,7 @@
   "arranFoundry.description": "Description",
   "arranFoundry.class": "Class",
   "arranFoundry.class_name": "Class name",
+  "arranFoundry.location": "Location",
 
   "arranFoundry.melee_attack": "Melee attack",
   "arranFoundry.range_attack": "Range attack",

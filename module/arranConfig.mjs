@@ -4,6 +4,7 @@ import { BoilerplateItem } from "./documents/item.mjs";
 // Import sheet classes.
 import {ArranFoundryCharacterActorSheet, BoilerplateActorSheet} from "./sheets/actor-sheet.mjs";
 import {
+  ArranFoundryArmorItemSheet,
   ArranFoundryItemSheet, ArranFoundryPathItemSheet, ArranFoundrySpellItemSheet, ArranFoundryWeaponItemSheet,
 
 } from "./sheets/item-sheet.mjs";
@@ -54,6 +55,7 @@ Hooks.once('init', async function() {
   Items.registerSheet("arranFoundry", ArranFoundryPathItemSheet, { label: game.i18n.localize("arranFoundry.config.path_sheet"), type: ["path"], makeDefault: true })
   Items.registerSheet("arranFoundry", ArranFoundryWeaponItemSheet, { label: game.i18n.localize("arranFoundry.config.weapon_sheet"), type: ["weapon"], makeDefault: true })
   Items.registerSheet("arranFoundry", ArranFoundrySpellItemSheet, { label: game.i18n.localize("arranFoundry.config.spell_sheet"), type: ["spell"], makeDefault: true })
+  Items.registerSheet("arranFoundry", ArranFoundryArmorItemSheet, { label: game.i18n.localize("arranFoundry.config.armor_sheet"), type: ["armor"], makeDefault: true })
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();

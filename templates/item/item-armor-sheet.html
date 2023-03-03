@@ -1,0 +1,22 @@
+<form class="{{cssClass}}" autocomplete="off">
+<header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'arranFoundry.name'}}"/></h1>
+    </div>
+</header>
+
+{{!-- Sheet Body --}}
+<section class="sheet-body">
+    <div>Type
+        <input type="text" name="system.type" value="{{system.type}}">
+    </div>
+    <div>Mod
+        <input type="number" name="system.mod" value="{{system.mod}}">
+    </div>
+    <div>
+        {{localize "arranFoundry.location"}}
+        <input type="text" name="system.location" value="{{system.location}}">
+    </div>
+</section>
+</form>
