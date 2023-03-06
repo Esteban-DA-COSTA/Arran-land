@@ -85,7 +85,11 @@
 
       },
       "battle_stats" : {
-        "initiative" : 0,
+        "initiative" : {
+          "base": 0,
+          "divers": 0,
+          "total": 0
+        },
         "attacks": {
           "melee": {
             "base": 0,

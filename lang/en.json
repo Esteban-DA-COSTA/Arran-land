@@ -83,6 +83,7 @@
   "arranFoundry.ui.delete_path": "Delete Item",
   "arranFoundry.ui.new": "New",
   "arranFoundry.ui.unlock_prestige": "Prestige path unlock level 8",
+  "arranFoundry.ui.battle_ressources": "Battle resources",
 
   "arranFoundry.msg.no_enough_resources": "No enough resource to do this.",
   "arranFoundry.msg.recuperation": "Rest 5 minutes to regain health points."

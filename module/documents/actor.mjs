@@ -159,6 +159,10 @@ export class ArranFoundryActor extends Actor {
       attribute.mod = finalMod; // -1 to map the value to the array index
     }
 
+    // Initiative
+    systemData.initiative.base = 10 + systemData.level + systemData.attributes.dexterity.mod;
+    systemData.initiative.total = systemData.initiative.base + systemData.initiative.divers
+
     // Attacks
     systemData.attacks.melee.base = systemData.level + systemData.attributes.strength.mod + 0
     systemData.attacks.melee.total = systemData.attacks.melee.base + systemData.attacks.melee.divers

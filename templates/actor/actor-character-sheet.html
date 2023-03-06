@@ -158,7 +158,7 @@
                   <div class="flexcol">Total</div>
                 </div>
                 <div class="grid grid-3col flex-group-center">
-                  <label class="rollable flex-col flexlarge align-center">Defense</label>
+                  <label class="flex-col flexlarge align-center">Defense</label>
                   <input type="number" name="system.defense.base" value="{{system.defense.base}}" disabled>
                   <input type="number" name="system.defense.total" value="{{system.defense.total}}">
                 </div>
@@ -167,10 +167,13 @@
           </div>
 
           <aside class="sidebar flex-group-right">
-            <h2 style="text-align: center">Battle resources</h2>
-            <label> Initiative
-
-            </label>
+            <h2 style="text-align: center">{{localize 'arranFoundry.ui.battle_ressources'}}</h2>
+            <div class="grid grid-4col flex-group-center">
+              <label class="flex-col flexlarge align-center"> Initiative</label>
+              <input type="number" name="system.initiative.base" value="{{system.initiative.base}}" disabled>
+              <input type="number" name="system.initiative.divers" value="{{system.initiative.divers}}">
+              <input type="number" name="system.initiative.total" value="{{system.initiative.total}}" disabled>
+            </div>
           </aside>
         </section>
       </div>
