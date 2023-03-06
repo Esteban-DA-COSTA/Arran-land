@@ -2,7 +2,7 @@
   "id": "arranFoundry",
   "title": "Les terres d'Arran",
   "description": "System usable to play to Arran's Lands",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "compatibility": {
     "minimum": "10",
     "verified": "10.291",
