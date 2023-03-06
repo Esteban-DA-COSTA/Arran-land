@@ -84,6 +84,8 @@
   "arranFoundry.ui.new": "New",
   "arranFoundry.ui.unlock_prestige": "Prestige path unlock level 8",
   "arranFoundry.ui.battle_ressources": "Battle resources",
+  "arranFoundry.ui.general_tab": "General",
+  "arranFoundry.ui.equipment_tab": "Equipments",
 
   "arranFoundry.msg.no_enough_resources": "No enough resource to do this.",
   "arranFoundry.msg.recuperation": "Rest 5 minutes to regain health points."

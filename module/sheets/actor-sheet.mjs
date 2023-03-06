@@ -316,68 +316,54 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
 
   _prepareItems(context) {
     // Initialize containers.
-    const gear = [];
+    const weapons = [];
     const features = [];
+    const armors = [];
     const paths = {
       "race": null,
       "culture": null,
       "prestige": null,
       "profile": []
     }
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: []
-    };
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
-      // Append to gear.
-      if (i.type === 'weapon') {
-        gear.push(i);
-      }
-      // Append to features.
-      else if (i.type === 'feature') {
-        features.push(i);
-      }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
-        }
-      }
-      else if (i.type === 'path') {
-        console.log(i);
-        switch (i.system.path_type) {
-          case "race":
-            paths.race = i;
-            break;
-          case "culture":
-            paths.culture = i;
-            break;
-          case "prestige":
-            paths.prestige = i;
-            break;
-          case "profile":
-            if (paths.profile.length < 3)
-              paths.profile.push(i);
-            break;
-        }
+      // Append to weapons.
+      switch (i.type) {
+        case "weapon":
+          weapons.push(i);
+          break;
+        case "armor":
+          armors.push(i);
+          break;
+        case "feature":
+          features.push(i);
+          break;
+        case "path":
+          switch (i.system.path_type) {
+            case "race":
+              paths.race = i;
+              break;
+            case "culture":
+              paths.culture = i;
+              break;
+            case "prestige":
+              paths.prestige = i;
+              break;
+            case "profile":
+              if (paths.profile.length < 3)
+                paths.profile.push(i);
+              break;
+          }
+          break;
       }
     }
 
     // Assign and return
-    context.gear = gear;
+    context.weapons = weapons;
+    context.armors = armors;
     context.features = features;
-    context.spells = spells;
     context.paths = paths;
   }
 
@@ -404,8 +390,6 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
       }
     }
 
-    // if (event)
-
   }
 
   /**
@@ -416,6 +400,7 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
   async _onItemCreate(event) {
     event.preventDefault();
     const header = event.currentTarget;
+    console.log(header);
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.

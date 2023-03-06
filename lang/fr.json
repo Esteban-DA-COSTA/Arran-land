@@ -84,6 +84,8 @@
   "arranFoundry.ui.new": "Nouvel(le)",
   "arranFoundry.ui.unlock_prestige": "Voie de prestige débloquée niveau 8",
   "arranFoundry.ui.battle_ressources": "Ressources de combat",
+  "arranFoundry.ui.general_tab": "Général",
+  "arranFoundry.ui.equipment_tab": "Équipements",
 
   "arranFoundry.msg.no_enough_resources": "Pas assez de ressource pour faire cela.",
   "arranFoundry.msg.recuperation": "Se repose 5 minutes pour regagner des points de vie."
