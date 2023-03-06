@@ -7,7 +7,7 @@
   event.preventDefault();
   const a = event.currentTarget;
   const li = a.closest("li");
-  const effect = li.dataset.effectId ? owner.effects.get(li.dataset.effectId) : null;
+  const effect = owner.effects.get(a.dataset.effect_id);
   switch ( a.dataset.action ) {
     case "create":
       return owner.createEmbeddedDocuments("ActiveEffect", [{
@@ -24,40 +24,4 @@
     case "toggle":
       return effect.update({disabled: !effect.disabled});
   }
-}
-
-/**
- * Prepare the data structure for Active Effects which are currently applied to an Actor or Item.
- * @param {ActiveEffect[]} effects    The array of Active Effect instances to prepare sheet data for
- * @return {object}                   Data for rendering
- */
-export function prepareActiveEffectCategories(effects) {
-
-    // Define effect header categories
-    const categories = {
-      temporary: {
-        type: "temporary",
-        label: "Temporary Effects",
-        effects: []
-      },
-      passive: {
-        type: "passive",
-        label: "Passive Effects",
-        effects: []
-      },
-      inactive: {
-        type: "inactive",
-        label: "Inactive Effects",
-        effects: []
-      }
-    };
-
-    // Iterate over active effects, classifying them into categories
-    for ( let e of effects ) {
-      e._getSourceName(); // Trigger a lookup for the source name
-      if ( e.disabled ) categories.inactive.effects.push(e);
-      else if ( e.isTemporary ) categories.temporary.effects.push(e);
-      else categories.passive.effects.push(e);
-    }
-    return categories;
 }

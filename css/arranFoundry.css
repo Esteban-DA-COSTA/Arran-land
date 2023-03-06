@@ -28,3 +28,15 @@
     float: right;
     margin: 5px 2px 0 0;
 }
+
+li.disable_effect {
+    color: #999;
+    background-color: rgba(0,0,0,0.2);
+    font-weight: bold;
+}
+
+h4.disable_effect {
+    color: #999;
+    font-weight: bold;
+}
+

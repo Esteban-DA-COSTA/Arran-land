@@ -5,6 +5,7 @@
   "ITEM.TypeArmor": "Armure",
 
   "ACTOR.TypeCharacter": "Personnage",
+  "ACTOR.effects": "Effets actifs",
 
   "arranFoundry.config.default_sheet": "Feuille par défaut",
   "arranFoundry.config.path_sheet": "Feuille de voie",
@@ -86,6 +87,11 @@
   "arranFoundry.ui.battle_ressources": "Ressources de combat",
   "arranFoundry.ui.general_tab": "Général",
   "arranFoundry.ui.equipment_tab": "Équipements",
+  "arranFoundry.ui.add_effect": "Ajouter effet",
+  "arranFoundry.ui.modify_effect": "Modifier effet",
+  "arranFoundry.ui.delete_effect": "Supprimer effet",
+  "arranFoundry.ui.toggle_effect": "Activer/Désactiver effet",
+  "arranFoundry.ui.effects": "Effets",
 
   "arranFoundry.msg.no_enough_resources": "Pas assez de ressource pour faire cela.",
   "arranFoundry.msg.recuperation": "Se repose 5 minutes pour regagner des points de vie."

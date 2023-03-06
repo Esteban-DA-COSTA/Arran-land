@@ -267,7 +267,6 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     context.race = ARRANFOUNDRY.race;
     context.actorCulture = ARRANFOUNDRY.culture[actorData.system.race];
 
-    console.log(this);
 
     // Prepare character data and items.
     this._prepareItems(context);
@@ -288,6 +287,8 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     // Add Inventory Item
     html.find('.item-create').click(this._onItemCreate.bind(this));
 
+    html.find(".effect-control").click(ev => onManageActiveEffect(ev, this.actor));
+
     html.find('.rollable').click(this._onRoll.bind(this));
 
     html.find('.item-edit').click(ev => {
@@ -299,10 +300,8 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     html.find('.item-delete').click(ev => {
       const dataset = ev.currentTarget.dataset;
       let item;
-      console.log(dataset.itemId);
       if (dataset.itemId) {
         item = this.actor.items.get(dataset.itemId);
-        console.log(item);
       } else {
         const li = $(ev.currentTarget).parents(".item");
         item = this.actor.items.get(li.data("itemId"));
@@ -342,21 +341,20 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
           break;
         case "path":
           switch (i.system.path_type) {
-            case "race":
-              paths.race = i;
-              break;
-            case "culture":
-              paths.culture = i;
-              break;
-            case "prestige":
-              paths.prestige = i;
-              break;
-            case "profile":
-              if (paths.profile.length < 3)
-                paths.profile.push(i);
-              break;
-          }
-          break;
+          case "race":
+            paths.race = i;
+            break;
+          case "culture":
+            paths.culture = i;
+            break;
+          case "prestige":
+            paths.prestige = i;
+            break;
+          case "profile":
+            if (paths.profile.length < 3)
+              paths.profile.push(i);
+            break;
+        }break;
       }
     }
 
@@ -415,33 +413,26 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.system["type"];
-    console.log(data);
 
     // Finally, create the item!
     return await Item.create(itemData, {parent: this.actor});
   }
 
   async _onDropItem(event, data) {
-    console.log(event);
     const targetNode = event.target;
     const itemTab = targetNode.closest(".items");
     const pathTab = targetNode.closest(".paths");
-    console.log(data);
     const item = await Item.implementation.fromDropData(data);
     const itemData = item.toObject();
-    console.log(itemData);
 
     const context = this.getData();
 
     if (itemData.type !== "path" && !!itemTab) {
-      console.log("ok");
       super._onDropItem(event, data);
     } else if(itemData.type === "path" && !!pathTab) {
-      console.log("Add path");
       switch (itemData.system.path_type) {
         case "race":
           if (!context.paths.race) {
-            console.log("Can add");
             super._onDropItem(event, data);
           } else {
             alert("already one");
@@ -449,7 +440,6 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
           break;
         case "culture":
           if (!context.paths.culture) {
-            console.log("Can add");
             super._onDropItem(event, data);
           } else {
             alert("already one");
@@ -458,14 +448,12 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
         case "prestige":
           if (context.lv >=8) {
             if (!context.paths.profile) {
-              console.log("Can add")
               super._onDropItem(event, data);
             }
           }
           break;
         case "profile":
           if (!context.paths.profile.length < 3) {
-            console.log("Can add")
             super._onDropItem(event, data);
           }
           break;

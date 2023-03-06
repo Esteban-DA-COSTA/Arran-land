@@ -5,6 +5,7 @@
   "ITEM.TypeArmor": "Armor",
 
   "ACTOR.TypeCharacter": "Character",
+  "ACTOR.effects": "Active Effects",
 
   "arranFoundry.config.default_sheet": "Default Sheet",
   "arranFoundry.config.path_sheet": "Path Sheet",
@@ -86,6 +87,11 @@
   "arranFoundry.ui.battle_ressources": "Battle resources",
   "arranFoundry.ui.general_tab": "General",
   "arranFoundry.ui.equipment_tab": "Equipments",
+  "arranFoundry.ui.add_effect": "Add effect",
+  "arranFoundry.ui.modify_effect": "Modify effect",
+  "arranFoundry.ui.delete_effect": "Delete effect",
+  "arranFoundry.ui.toggle_effect": "Toggle effect",
+  "arranFoundry.ui.effects": "Effects",
 
   "arranFoundry.msg.no_enough_resources": "No enough resource to do this.",
   "arranFoundry.msg.recuperation": "Rest 5 minutes to regain health points."

@@ -42,6 +42,11 @@ Hooks.once('init', async function() {
     decimals: 0
   };
 
+  console.log("toto");
+
+  CONFIG.statusEffects.find(effect => effect.id === "stun").changes = [{key: "system.hp.value", mode: 3, value: "3"}]
+  console.log(CONFIG.statusEffects.find(effect => effect.id === "stun"))
+
   // Define custom Document classes
   CONFIG.Actor.documentClass = ArranFoundryActor;
   CONFIG.Item.documentClass = BoilerplateItem;
