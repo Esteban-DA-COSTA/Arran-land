@@ -1,4 +1,4 @@
-import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs";
+import {onManageActiveEffect} from "../helpers/effects.mjs";
 import {ARRANFOUNDRY} from "../helpers/config.mjs";
 
 /**
