@@ -14,8 +14,12 @@
             {{localize "arranFoundry.damage"}}
             <input type="text" name="system.damage" value="{{system.damage}}">
         </div>
-        <div>Mod.
-            <input type="text" name="system.mod" value="{{system.mod}}">
+        <div style="margin-top: 5px">Mod.
+            <select name="system.mod">
+                <option value="strength" {{#if (eq 'strength' system.mod)}} selected="selected" {{/if}}>{{localize 'arranFoundry.attributes.strength'}}</option>
+                <option value="dexterity" {{#if (eq 'dexterity' system.mod)}} selected="selected" {{/if}}>{{localize 'arranFoundry.attributes.dexterity'}}</option>
+                <option value="intelligence" {{#if (eq 'intelligence' system.mod)}} selected="selected" {{/if}}>{{localize 'arranFoundry.attributes.intelligence'}}</option>
+            </select>
         </div>
         <div>
             {{localize "arranFoundry.attack_type"}}

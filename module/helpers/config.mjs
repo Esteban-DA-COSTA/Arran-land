@@ -6,65 +6,65 @@ export const ARRANFOUNDRY = {};
  * @type {Object}
  */
  BOILERPLATE.abilities = {
-  "str": "BOILERPLATE.AbilityStr",
-  "dex": "BOILERPLATE.AbilityDex",
-  "con": "BOILERPLATE.AbilityCon",
-  "int": "BOILERPLATE.AbilityInt",
-  "wis": "BOILERPLATE.AbilityWis",
-  "cha": "BOILERPLATE.AbilityCha"
+  str: "BOILERPLATE.AbilityStr",
+  dex: "BOILERPLATE.AbilityDex",
+  con: "BOILERPLATE.AbilityCon",
+  int: "BOILERPLATE.AbilityInt",
+  wis: "BOILERPLATE.AbilityWis",
+  cha: "BOILERPLATE.AbilityCha"
 };
 
 ARRANFOUNDRY.path_type = {
-    "profile": "arranFoundry.path_profile",
-    "race": "arranFoundry.path_race",
-    "culture": "arranFoundry.path_culture",
-    "prestige": "arranFoundry.path_prestige"
+    profile: "arranFoundry.path_profile",
+    race: "arranFoundry.path_race",
+    culture: "arranFoundry.path_culture",
+    prestige: "arranFoundry.path_prestige"
 }
 
 ARRANFOUNDRY.attributes = {
-    "strength": "arranFoundry.attributes.strength",
-    "dexterity": "arranFoundry.attributes.dexterity",
-    "constitution": "arranFoundry.attributes.constitution",
-    "intelligence": "arranFoundry.attributes.intelligence",
-    "wisdom": "arranFoundry.attributes.wisdom",
-    "charisma": "arranFoundry.attributes.charisma"
+    strength: "arranFoundry.attributes.strength",
+    dexterity: "arranFoundry.attributes.dexterity",
+    constitution: "arranFoundry.attributes.constitution",
+    intelligence: "arranFoundry.attributes.intelligence",
+    wisdom: "arranFoundry.attributes.wisdom",
+    charisma: "arranFoundry.attributes.charisma"
 }
 
 ARRANFOUNDRY.race = {
-    "human": "arranFoundry.race.human",
-    "elf": "arranFoundry.race.elf",
-    "dwarf": "arranFoundry.race.dwarf",
-    "green_skin": "arranFoundry.race.green_skin",
+    human: "arranFoundry.race.human",
+    elf: "arranFoundry.race.elf",
+    dwarf: "arranFoundry.race.dwarf",
+    green_skin: "arranFoundry.race.green_skin",
 
 }
 
 ARRANFOUNDRY.culture = {
-    "human": {
-        "north": "arranFoundry.culture.north",
-        "east": "arranFoundry.culture.east",
-        "west": "arranFoundry.culture.west",
-        "south": "arranFoundry.culture.south"
+    human: {
+        north: "arranFoundry.culture.north",
+        east: "arranFoundry.culture.east",
+        west: "arranFoundry.culture.west",
+        south: "arranFoundry.culture.south"
     },
-    "elf" : {
-        "white": "arranFoundry.culture.white",
-        "black": "arranFoundry.culture.black",
-        "blue" : "arranFoundry.culture.blue",
-        "forest": "arranFoundry.culture.forest",
-        "half": "arranFoundry.culture.half_elf"
+    elf: {
+        white: "arranFoundry.culture.white",
+        black: "arranFoundry.culture.black",
+        blue: "arranFoundry.culture.blue",
+        forest: "arranFoundry.culture.forest",
+        half: "arranFoundry.culture.half_elf"
     },
-    "dwarf": {
-        "temple": "arranFoundry.culture.temple",
-        "talion": "arranFoundry.culture.talion",
-        "forge": "arranFoundry.culture.forge",
-        "shield": "arranFoundry.culture.shield",
-        "wanderers": "arranFoundry.culture.wanderers"
+    dwarf: {
+        temple: "arranFoundry.culture.temple",
+        talion: "arranFoundry.culture.talion",
+        forge: "arranFoundry.culture.forge",
+        shield: "arranFoundry.culture.shield",
+        wanderers: "arranFoundry.culture.wanderers"
     },
-    "green_skin": [
-        "arranFoundry.culture.orc",
-        "arranFoundry.culture.ogre",
-        "arranFoundry.culture.goblin",
-        "arranFoundry.culture.abomination"
-    ]
+    green_skin: {
+        orc: "arranFoundry.culture.orc",
+        ogre: "arranFoundry.culture.ogre",
+        goblin: "arranFoundry.culture.goblin",
+        abomination: "arranFoundry.culture.abomination"
+    }
 }
 
 ARRANFOUNDRY.defaultModificator = [

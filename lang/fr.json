@@ -95,5 +95,6 @@
 
   "arranFoundry.msg.no_enough_resources": "Pas assez de ressource pour faire cela.",
   "arranFoundry.msg.recuperation": "Se repose 5 minutes pour regagner des points de vie.",
-  "arranFoundry.msg.make_test": "Fais un test de"
+  "arranFoundry.msg.make_test": "Fais un test de",
+  "arranFoundry.msg.attack_with": "Attaque avec"
 }

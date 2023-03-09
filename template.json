@@ -130,7 +130,7 @@
     "weapon": {
       "templates": [],
       "damage": "",
-      "mod": "FOR",
+      "mod": "strength",
       "attack_type": "contact"
     },
     "armor": {

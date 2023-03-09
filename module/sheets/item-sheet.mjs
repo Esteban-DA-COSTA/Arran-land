@@ -169,26 +169,8 @@ export class ArranFoundryWeaponItemSheet extends ItemSheet {
 
   async rollAttack(event) {
     event.preventDefault();
-
-
-    const element = event.currentTarget;
-
-    const data = element.dataset;
-    // Check that there is a formula to attack
-    if (!data.roll && data.roll === "") {
-      const msg = await ChatMessage.create({content: "<b>No rolling damage information</b>"});
-      return msg;
-    }
-    const roll = new Roll(data.roll);
-    roll.evaluate({async: false});
-    roll.toMessage({
-      label: game.i18n.localize("arranFoundry.attack"),
-      flavor: game.i18n.localize("arranFoundry.damage")
-    });
-    return roll;
-
+    return this.item.roll();
   }
-
 }
 
 export class ArranFoundryPathItemSheet extends ItemSheet {
