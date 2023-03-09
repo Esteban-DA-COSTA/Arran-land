@@ -405,6 +405,8 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
         rollMode: game.settings.get('core', 'rollMode'),
         flavor: msg
       });
+    } else if (data.label === "weapon") {
+      return this.actor.items.get(data.itemId).roll();
     }
 
   }
