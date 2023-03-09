@@ -1,8 +1,0 @@
-{
-  "spell": {
-    "templates": ["default"],
-    "cost": 0,
-    "concentration": false,
-    "action_type": "A"
-  }
-}
