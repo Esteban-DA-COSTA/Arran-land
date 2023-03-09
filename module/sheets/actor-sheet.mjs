@@ -270,13 +270,9 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
 
     // Prepare character data and items.
     this._prepareItems(context);
-    // this._prepareCharacterData(context);
 
     // Add roll data for TinyMCE editors.
     context.rollData = context.actor.getRollData();
-
-    // Prepare active effects
-    // context.effects = prepareActiveEffectCategories(this.actor.effects);
 
     return context;
   }
@@ -376,9 +372,13 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
       } else {
         this.actor.system.rp.value--;
         const roll = new Roll(data.roll, this.actor.getRollData());
+        const msg = game.i18n.localize("arranFoundry.msg.recuperation");
         roll.evaluate({async: false});
         this.actor.system.hp.value += roll.total;
-        const msg = game.i18n.localize("arranFoundry.msg.recuperation")
+        // Prevent gaining more hp than maximum
+        if (this.actor.system.hp.value > this.actor.system.hp.max) {
+          this.actor.system.hp.value = this.actor.system.hp.max;
+        }
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({actor: this.actor}),
           rollMode: game.settings.get('core', 'rollMode'),
@@ -386,6 +386,25 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
         });
         return roll;
       }
+    } else if (data.label === "attribute") {
+      const roll = new Roll(data.roll, this.actor.getRollData());
+      const msg = game.i18n.localize("arranFoundry.msg.make_test") + " <b>" + game.i18n.localize(`arranFoundry.attributes.${data.field}`)+"</b>";
+      roll.evaluate({async: false});
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({actor: this.actor}),
+        rollMode: game.settings.get('core', 'rollMode'),
+        flavor: msg
+      });
+      return roll;
+    } else if (data.label === "attack") {
+      const roll = new Roll(data.roll, this.actor.getRollData());
+      const msg = game.i18n.localize("arranFoundry.msg.make_test") + " <b>" + game.i18n.localize(`arranFoundry.${data.type}_attack`)+"</b>";
+      roll.evaluate({async: false});
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({actor: this.actor}),
+        rollMode: game.settings.get('core', 'rollMode'),
+        flavor: msg
+      });
     }
 
   }

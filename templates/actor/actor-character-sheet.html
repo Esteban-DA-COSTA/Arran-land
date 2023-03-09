@@ -43,7 +43,6 @@
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="paths">{{localize 'arranFoundry.paths'}}</a>
     <a class="item" data-tab="equipment">{{localize 'arranFoundry.ui.equipment_tab'}}</a>
-    <a class="item" data-tab="spells">Spells</a>
     <a class="item" data-tab="effects">{{localize 'arranFoundry.ui.effects'}}</a>
   </nav>
 
@@ -104,7 +103,7 @@
             {{#each system.attributes as |attribute|}}
             <div class="attribute flexrow flex-group-center">
               <label class="resource-label rollable flexlarge align-center" data-roll="d20+@attributes.{{@key}}.mod"
-                     data-label="{{@key}}">{{localize (concat 'arranFoundry.attributes.' @key)}}</label>
+                     data-label="attribute" data-field="{{@key}}">{{localize (concat 'arranFoundry.attributes.' @key)}}</label>
               <input type="text" name="system.attributes.{{@key}}.value" value="{{attribute.value}}"
                      data-dtype="Number"/>
               <input type="text" name="system.attributes.{{@key}}.custom" value="{{attribute.custom}}"
@@ -126,21 +125,22 @@
               <h2 class="align-center">{{localize 'arranFoundry.ui.attacks'}}</h2>
               <div class="flexcol">
                 <div class="flexrow flex-group-center">
-                  <label class="rollable flexlarge align-left"> {{localize 'arranFoundry.melee_attack'}}</label>
+                  <label class="rollable flexlarge align-left" data-label="attack" data-type="melee" data-roll="d20+@attacks.melee.total"> {{localize 'arranFoundry.melee_attack'}}</label>
                   <input type="number" name="system.attacks.melee.base" value="{{system.attacks.melee.base}}"
                          disabled="disabled">
                   <input type="number" name="system.attacks.melee.divers" value="{{system.attacks.melee.divers}}">
                   <span class="rollable" data-roll="" data-label="{{melee}}">{{numberFormat system.attacks.melee.total decimals=0}}</span>
                 </div>
                 <div class="flexrow flex-group-center">
-                  <label class="rollable flexlarge align-left"> {{localize 'arranFoundry.range_attack'}}</label>
+                  {{log @attacks}}
+                  <label class="rollable flexlarge align-left" data-label="attack" data-type="range" data-roll="d20+@attacks.magic.total"> {{localize 'arranFoundry.range_attack'}}</label>
                   <input type="number" name="system.attacks.range.base" value="{{system.attacks.range.base}}"
                          disabled="disabled">
                   <input type="number" name="system.attacks.range.divers" value="{{system.attacks.range.divers}}">
                   <span class="rollable" data-roll="" data-label="{{melee}}">{{numberFormat system.attacks.range.total decimals=0}}</span>
                 </div>
                 <div class="flexrow flex-group-center">
-                  <label class="rollable flexlarge align-left"> {{localize 'arranFoundry.magic_attack'}}</label>
+                  <label class="rollable flexlarge align-left" data-label="attack" data-type="magic" data-roll="d20+@attacks.magic.total"> {{localize 'arranFoundry.magic_attack'}}</label>
                   <input type="number" name="system.attacks.magic.base" value="{{system.attacks.magic.base}}"
                          disabled="disabled">
                   <input type="number" name="system.attacks.magic.divers" value="{{system.attacks.magic.divers}}">

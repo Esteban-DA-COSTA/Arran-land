@@ -94,5 +94,6 @@
   "arranFoundry.ui.effects": "Effects",
 
   "arranFoundry.msg.no_enough_resources": "No enough resource to do this.",
-  "arranFoundry.msg.recuperation": "Rest 5 minutes to regain health points."
+  "arranFoundry.msg.recuperation": "Rest 5 minutes to regain health points.",
+  "arranFoundry.msg.make_test": "Roll for"
 }

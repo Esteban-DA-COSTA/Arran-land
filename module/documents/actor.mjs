@@ -125,7 +125,6 @@ export class ArranFoundryActor extends Actor {
   prepareDerivedData() {
     const actorData = this;
     const systemData = actorData.system;
-    const flags = actorData.flags.boilerplate || {};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -183,6 +182,8 @@ export class ArranFoundryActor extends Actor {
    */
   _getCharacterRollData(data) {
     if (this.type !== 'character') return;
+
+    console.log(data);
 
     // Add level for easier access, or fall back to 0.
     if (data.level) {
