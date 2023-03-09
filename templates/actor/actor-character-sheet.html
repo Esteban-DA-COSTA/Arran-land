@@ -132,7 +132,6 @@
                   <span class="rollable" data-roll="" data-label="{{melee}}">{{numberFormat system.attacks.melee.total decimals=0}}</span>
                 </div>
                 <div class="flexrow flex-group-center">
-                  {{log @attacks}}
                   <label class="rollable flexlarge align-left" data-label="attack" data-type="range" data-roll="d20+@attacks.magic.total"> {{localize 'arranFoundry.range_attack'}}</label>
                   <input type="number" name="system.attacks.range.base" value="{{system.attacks.range.base}}"
                          disabled="disabled">
