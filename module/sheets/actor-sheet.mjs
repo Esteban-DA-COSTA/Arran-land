@@ -1,5 +1,6 @@
 import {onManageActiveEffect} from "../helpers/effects.mjs";
 import {ARRANFOUNDRY} from "../helpers/config.mjs";
+import {HealthDiceDialog} from "./dialogs/health_dice_dialog.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -41,13 +42,13 @@ export class BoilerplateActorSheet extends ActorSheet {
     context.flags = actorData.flags;
 
     // Prepare character data and items.
-    if (actorData.type == 'character') {
+    if (actorData.type === 'character') {
       this._prepareItems(context);
       this._prepareCharacterData(context);
     }
 
     // Prepare NPC data and items.
-    if (actorData.type == 'npc') {
+    if (actorData.type === 'npc') {
       this._prepareItems(context);
     }
 
@@ -365,48 +366,57 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const data = element.dataset;
+    const roll = new Roll(data.roll, this.actor.getRollData());
+    let msg = '';
 
-    if (data.label === "recuperation") {
-      if (this.actor.system.rp.value === 0) {
-        return ChatMessage.create({content: game.i18n.localize("arranFoundry.msg.no_enough_resources")})
-      } else {
-        this.actor.system.rp.value--;
-        const roll = new Roll(data.roll, this.actor.getRollData());
-        const msg = game.i18n.localize("arranFoundry.msg.recuperation");
-        roll.evaluate({async: false});
-        this.actor.system.hp.value += roll.total;
-        // Prevent gaining more hp than maximum
-        if (this.actor.system.hp.value > this.actor.system.hp.max) {
-          this.actor.system.hp.value = this.actor.system.hp.max;
+    switch (data.label) {
+      case "recuperation":
+        if (this.actor.system.rp.value === 0) {
+          return ChatMessage.create({content: game.i18n.localize("arranFoundry.msg.no_enough_resources")})
+        } else {
+          console.log('toto2');
+          this.actor.system.rp.value--;
+          const roll = new Roll(data.roll, this.actor.getRollData());
+          const msg = game.i18n.localize("arranFoundry.msg.recuperation");
+          roll.evaluate({async: false});
+          this.actor.system.hp.value += roll.total;
+          // Prevent gaining more hp than maximum
+          if (this.actor.system.hp.value > this.actor.system.hp.max) {
+            this.actor.system.hp.value = this.actor.system.hp.max;
+          }
+          roll.toMessage({
+            speaker: ChatMessage.getSpeaker({actor: this.actor}),
+            rollMode: game.settings.get('core', 'rollMode'),
+            flavor: msg
+          });
+
+          console.log(`remaining rp = ${this.actor.system.rp.value}`)
+          this.render();
+          return roll;
         }
+      case "attribute":
+        msg = game.i18n.localize("arranFoundry.msg.make_test") + " <b>" + game.i18n.localize(`arranFoundry.attributes.${data.field}`) + "</b>";
+        roll.evaluate({async: false});
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({actor: this.actor}),
           rollMode: game.settings.get('core', 'rollMode'),
           flavor: msg
         });
         return roll;
-      }
-    } else if (data.label === "attribute") {
-      const roll = new Roll(data.roll, this.actor.getRollData());
-      const msg = game.i18n.localize("arranFoundry.msg.make_test") + " <b>" + game.i18n.localize(`arranFoundry.attributes.${data.field}`)+"</b>";
-      roll.evaluate({async: false});
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({actor: this.actor}),
-        rollMode: game.settings.get('core', 'rollMode'),
-        flavor: msg
-      });
-      return roll;
-    } else if (data.label === "attack") {
-      const roll = new Roll(data.roll, this.actor.getRollData());
-      const msg = game.i18n.localize("arranFoundry.msg.make_test") + " <b>" + game.i18n.localize(`arranFoundry.${data.type}_attack`)+"</b>";
-      roll.evaluate({async: false});
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({actor: this.actor}),
-        rollMode: game.settings.get('core', 'rollMode'),
-        flavor: msg
-      });
-    } else if (data.label === "weapon") {
-      return this.actor.items.get(data.itemId).roll();
+      case "attack":
+        msg = game.i18n.localize("arranFoundry.msg.make_test") + " <b>" + game.i18n.localize(`arranFoundry.${data.type}_attack`) + "</b>";
+        roll.evaluate({async: false});
+        roll.toMessage({
+          speaker: ChatMessage.getSpeaker({actor: this.actor}),
+          rollMode: game.settings.get('core', 'rollMode'),
+          flavor: msg
+        });
+        break;
+      case "weapon":
+        return this.actor.items.get(data.itemId).roll();
+      case "set_hd":
+        this.openHealthDialog();
+        break;
     }
 
   }
@@ -485,4 +495,7 @@ export class ArranFoundryCharacterActorSheet extends ActorSheet {
     }
   }
 
+  openHealthDialog() {
+    new HealthDiceDialog(this.actor).render(true);
+  }
 }
