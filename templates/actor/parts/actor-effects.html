@@ -11,7 +11,7 @@
     <li class="item effect flexrow {{#if effect.disabled}}disable_effect{{/if}}" data-effect-id="{{effect._id}}">
       <div class="item-name effect-name flexrow">
         <img class="item-image" src="{{effect.icon}}"/>
-        <h4 class="{{#if effect.disabled}}disable_effect{{/if}}">{{effect.label}}</h4>
+        <h4 class="{{#if effect.disabled}}disable_effect{{/if}}">{{effect.name}}</h4>
       </div>
       <div class="item-controls effect-controls flexrow">
         <a class="effect-control" data-action="toggle" data-effect_id="{{effect._id}}" title="{{localize 'arranFoundry.ui.toggle_effect'}}">
